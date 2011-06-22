@@ -53,8 +53,8 @@ alias doc='cd ~/Documents'
 alias todo='vi ~/Desktop/TODO.md'
 alias class='cd /Users/dustin/Documents/Classes/'
 
-# PIM tools --------------------------------------------------------
-alias rents='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/Home/rents/2010.txt ; vi ~/Documents/Personal/Home/rents/2010.txt'
+# Personal tools --------------------------------------------------------
+alias rents='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/Home/rents/2011.txt ; vi ~/Documents/Personal/Home/rents/2011.txt'
 alias migraine='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/ ; vi ~/Documents/Personal/Health/migraine_log.md'
 
 
@@ -112,7 +112,5 @@ cat ~/.ssh/id_rsa.pub | ssh "$@" 'cat >> .ssh/authorized_keys';
 
 # Shows most used commands, from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
-
-alias untar="tar xvzf"
 
 alias cp_folder="cp -Rpv" #copies folder and all sub files and folders, preserving security and dates

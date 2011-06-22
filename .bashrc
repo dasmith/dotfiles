@@ -46,7 +46,7 @@ if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
   export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
   export PATH=$PATH:$EC2_HOME/bin
 elif [ $THISHOST = "intern04" ]; then
-  source aliases.nokia
+  source ~/aliases.nokia
 fi
      
 # Load in .bashrc -------------------------------------------------
