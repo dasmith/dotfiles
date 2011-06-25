@@ -1,8 +1,9 @@
 git pull
 echo "Installing dot files"
 
-ln -s bash_profile ../.bash_profile
-ln -s bashrc ../.bashrc
-ln -s aliases ../.alises
-ln -s vimrc.local ../.vimrc.local
+D=`pwd`
+ln -Fs ${D}/bash_profile ../.bash_profile
+ln -Fs ${D}/bashrc ../.bashrc
+ln -Fs ${D}/aliases ../.alises
+ln -Fs ${D}/vimrc.local ../.vimrc.local
 
