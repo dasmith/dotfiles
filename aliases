@@ -35,7 +35,6 @@ alias qmake=/home/dussmith/QtSDK/Desktop/Qt/473/gcc/bin/qmake
 
 # Navigation ------------------------------------------------------
 alias gen='cd ~/Documents/Notes/generals/; mvim *.md header.txt Makefile'
-alias py='cd ~/Documents/Projects/py-dustin'
 
 
 if [[ "$uname" == 'Linux' ]]; then
@@ -43,6 +42,7 @@ if [[ "$uname" == 'Linux' ]]; then
   alias v='gvim'
   eval `dircolors -b`
 elif [[ "$uname" == 'Darwin' ]]; then
+  alias py='cd ~/Documents/Projects/py-dustin'
   alias v='/Applications/MacVim.app/Contents/MacOS/vim -g --remote-silent'
 fi
 
