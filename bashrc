@@ -23,13 +23,13 @@ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse
 
 if [ $THISHOST = "UTM" ]; then 
   #alias eclim='/Applications/eclipse/eclimd'
-  export ARCHFLAGS='-arch i386'
+  export ARCHFLAGS='-arch x86_64'
   export JAVA_HOME="/usr/lib/jvm/java-6-sun"
   PANDA_VERSION=1.7
   PANDA_PATH=/Developer/Panda3d/lib
   export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
-  source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
-  export PATH=/Developer/Tools/Panda3d/bin:/usr/local/bin/:$PATH:/Users/dustin/.vim/scmindent
+  #source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
+  export PATH=/Developer/Tools/Panda3d/bin:/usr/local/bin/:$PATH:/Users/dustin/.vim/scmindent:$HOME/Library/Haskell/bin
   source /Users/dustin/Documents/Projects/Others/StarCluster/completion/starcluster-completion.sh
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
   export PS1='\[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ ' # no hostname
