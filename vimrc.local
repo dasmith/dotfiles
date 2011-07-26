@@ -56,7 +56,7 @@ if has("autocmd")
 endif
 
 " Font
-set guifont=Meslo\ LG\ M\ DZ:h12
+set guifont=Meslo\ LG\ M\ DZ:h13
 
 " Command-][ to increase/decrease indentation
 vmap <D-]> >gv

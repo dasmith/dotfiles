@@ -58,7 +58,8 @@ alias class='cd /Users/dustin/Documents/Classes/'
 
 # Personal tools --------------------------------------------------------
 alias rents='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/Home/rents/2011.txt ; vi ~/Documents/Personal/Home/rents/2011.txt'
-alias migraine='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/ ; vi ~/Documents/Personal/Health/migraine_log.md'
+alias migraine='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/Health/migraine_log.md ; vi ~/Documents/Personal/Health/migraine_log.md'
+alias travel='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/travel_log.md ; vi ~/Documents/Personal/travel_log.md'
 
 
 alias sc='starcluster'
@@ -69,7 +70,7 @@ alias ...='cd .. ; cd ..'
 
 alias irb='irb --readline -r irb/completion'
 
-export VERSIONER_PYTHON_PREFER_32_BIT=yes
+export VERSIONER_PYTHON_PREFER_32_BIT=no
 # Navigation ------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
