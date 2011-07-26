@@ -32,6 +32,7 @@ alias ag='sudo aptitude install'
 alias ipl='screen -R prolog'
 alias ipy='screen -AmdS ipython ipython ; screen -R ipython'
 alias qmake=/home/dussmith/QtSDK/Desktop/Qt/473/gcc/bin/qmake
+alias espresso='~/py-dustin/habitphone/Espresso/bin/espresso.js'
 
 # Navigation ------------------------------------------------------
 alias gen='cd ~/Documents/Notes/generals/; mvim *.md header.txt Makefile'
