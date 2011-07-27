@@ -1,5 +1,6 @@
 set nocompatible
 
+set hidden
 set number
 set ruler
 syntax on
@@ -15,11 +16,15 @@ set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
+
+" set paste
+
 " Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set title
 
 " Tab completion
 set wildmode=list:longest,list:full
@@ -28,8 +33,8 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 " Status bar
 set laststatus=2
 
-" Change leader from \ to ""set mapleader = ","
-
+" Remap leader
+let mapleader = ","
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
