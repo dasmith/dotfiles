@@ -2,7 +2,7 @@
 platform='unknown'
 
 uname=`uname`
-
+export PYTHON_PATH=$PYTHON_PATH:~/Documents/Projects/goals/mongo/
 PANDA_VERSION=1.7
 PANDA_PATH=/Developer/Panda3d/lib
 export PYTHONPATH=$PANDA_PATH:$PYTHONPATH:~/.py-dustin/:~/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
