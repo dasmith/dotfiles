@@ -1,0 +1,45 @@
+% from http://eugenkiss.com/blog/2011/fiction-in-markdown-with-pandoc/
+
+\documentclass[ebook,article,oneside,english]{memoir}
+\usepackage[margin=0.6in, paperwidth=6in, paperheight=8.5in]{geometry} 
+\usepackage{booktabs}%
+\usepackage[pdftex,unicode,bookmarks,colorlinks,breaklinks,pagebackref,pdftitle={TITLE},pdfauthor={AUTHOR}]{hyperref}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[sc]{mathpazo} 
+%\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{cite}
+\linespread{1.05} % Palatino needs more leading (space between lines) 
+\pagestyle{plain} 
+$if(numbersections)$ 
+$else$ 
+	\setcounter{secnumdepth}{-1} 
+$endif$ 
+$for(header-includes)$ 
+	$header-includes$ 
+$endfor$ 
+$if(title)$ 
+	\title{$title$} 
+$endif$ 
+$if(author)$ 
+\author{$for(author)$$author$$sep$\\$endfor$} 
+$endif$ 
+$if(date)$ 
+\date{$date$} 
+$else$ 
+\date{} 
+$endif$ 
+\begin{document} 
+$if(title)$ \maketitle 
+$endif$ 
+
+$for(include-before)$ 
+$include-before$ 
+$endfor$ 
+$if(toc)$ \tableofcontents $endif$ 
+$body$ 
+$for(include-after)$ 
+$include-after$ 
+$endfor$ 
+\end{document}

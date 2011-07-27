@@ -6,7 +6,7 @@ uname=`uname`
 PANDA_VERSION=1.7
 PANDA_PATH=/Developer/Panda3d/lib
 export PYTHONPATH=$PANDA_PATH:$PYTHONPATH:~/.py-dustin/:~/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
-PATH=/usr/local/git/bin/:/Applications/MATLAB_R2008a/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/opt/local/lib/mysql5/bin:/opt/local/lib/postgresql84/bin/:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:~/.local/bin/:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/Developer/Tools/Panda3d:/opt/local/include/:/opt/local/lib/:$PATH:/usr/local/mysql/bin
+PATH=/usr/local/git/bin/:~/dotfiles/bin/:/Applications/MATLAB_R2008a/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/opt/local/lib/mysql5/bin:/opt/local/lib/postgresql84/bin/:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:~/.local/bin/:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/Developer/Tools/Panda3d:/opt/local/include/:/opt/local/lib/:$PATH:/usr/local/mysql/bin
 
 # These methods are only relevant on my mac.
 alias py26="defaults write com.apple.versioner.python Version 2.6"
@@ -50,7 +50,6 @@ fi
 # Shortcuts -------------------------------------------------------
 alias d='cd ~/Documents'
 alias proj='cd ~/Documents/Projects'
-alias notes='cd ~/Documents/Notes'
 alias doc='cd ~/Documents'
 alias todo='vi ~/Desktop/TODO.md'
 alias class='cd /Users/dustin/Documents/Classes/'
