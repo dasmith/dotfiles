@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+"""
+Personal note taking application for Dustin Smith
+
+Usage:
+  note health
+    > opens up health.md in vim
+  note health,goals
+    > opens up health.md and goals.md in vim
+"""
+
+import sys
+import os
+import subprocess
+
+NOTES_PATH = "/Users/dustin/Documents/Notes"
+
+if len(sys.argv) < 2:
+  os.system("echo cd %s" % NOTES_PATH)
+  sys.exit(1)
+docs = []
+
+for doc in sys.argv[1].split(","):
+    while True:
+        if doc[-1] == '!':
+            end_char = doc.pop()
+        break
+    docs.append(doc)
+
+if len(sys.argv) > 2:
+    for doc in docs:
+        ofile = open("%s/%s.md" % (NOTES_PATH, doc), 'a')
+        ofile.write(" ".join(sys.argv[2:]))
+        ofile.close()
+    print "Added text to %s" % (' and '.join(["'%s.md'" % d for d in docs]))
+else:
+  # open the file(s) in vim for editing
+  subprocess.call("mvim %s" % ' '.join(["%s/%s.md" % (NOTES_PATH, doc) for doc in docs]),shell=True)
