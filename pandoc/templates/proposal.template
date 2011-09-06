@@ -1,0 +1,182 @@
+% from http://eugenkiss.com/blog/2011/fiction-in-markdown-with-pandoc/
+
+
+
+\documentclass[10pt]{article}
+\usepackage[pdftex]{graphicx}
+%\usepackage{times}
+\usepackage{epsfig}
+%\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{cite}
+%\usepackage{symbols}%     Provides a few math symbols (replaced with DJCMamssymb) 
+%\usepackage{twoside}
+\usepackage{booktabs}%
+\usepackage[pdftex,bookmarks,colorlinks,breaklinks,pagebackref,pdftitle={TITLE},pdfauthor={AUTHOR}]{hyperref}
+\hypersetup{linkcolor=red,citecolor=blue,filecolor=orange,urlcolor=blue}
+% % %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY OF PAPER
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\itemsep 1pt
+\normallineskip 1pt
+\def\baselinestretch{1}
+\parskip 0pt  \parindent 20pt 
+\topsep 0pt   % topskip in list-environment
+\partopsep 3pt% 
+\itemsep 0pt% skip between items
+
+\setlength\topmargin{0in}
+\setlength\headheight{12pt}
+\setlength\headsep{0in}
+\setlength\textheight{7.7in}
+\setlength\textwidth{5.5in}
+\setlength\oddsidemargin{-0.2in}
+\setlength\evensidemargin{0in}
+
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{aside}{thp}{lop}
+\floatname{aside}{Aside}
+
+\usepackage[position=top]{subfig}
+
+\usepackage{amsmath, amsthm, amssymb}
+
+\usepackage{verbatim}
+
+\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+%\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{mathrsfs}
+
+
+%\usepackage{lmodern}
+\newcommand{\Cal}{\texttt{Event Planner} }
+\newcommand{\eg}{\textit{e.g.}, }
+\newcommand{\ie}{\textit{i.e.}, }
+\newcommand{\cer}{\textit{c.}}
+
+\newcommand{\bibhere}{\bibliographystyle{apalike}
+\bibliography{/bib/papers}}
+%\setlength{\parindent}{0pt}
+
+\usepackage{setspace} % use \begin{spacing}{1.5}, or \onehalfspacing, etc
+\usepackage{enumerate}
+\usepackage{array}
+% This is needed because raggedright in table elements redefines \\:
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\let\PBS=\PreserveBackslash
+\usepackage{enumerate}
+
+\newcommand{\prop}[2]{\texttt{#1(}\textsf{#2}\texttt{)}}
+\newcommand{\pred}[3]{\texttt{#1(}\textsf{#2}\texttt{,}\textsf{#3}\texttt{)}}
+%
+\newcommand{\g}[2]{\textsc{#1}.\textbf{#2}}
+
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\begin{document}
+
+%%%%%%%%% TITLE
+
+\author{Dustin Arthur Smith \\
+Massachusetts Institute of Technology  \\
+20 Ames ST, E15-446\\
+Cambridge, MA 02139 USA\\
+{\tt\small dsmit@mit.edu}
+%\and Jane Doe\\
+%Massachusetts Institute of Technology  \\
+%20 Ames ST, E15-777\\
+%Cambridge, MA 02139 USA\\
+%{\tt\small jdoe@media.mit.edu}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% PAPER TITLE AND AUTHOR
+\title{$title$}
+\date{\today}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% ADVISOR AND READERS INFO
+\vspace{1.5cm}
+{\bf Advisor: }\rule[-0.1cm]{11.25cm}{0.01cm}
+\vspace{-0.5cm}
+\begin{flushright}
+\hfill\parbox[right]{6cm}
+    {\begin{flushright} \hfill  Wo Tang Clan \newline
+    \hfill Professor of Media Art \& Sciences \newline
+    \hfill MIT Media Lab \end{flushright}}
+\end{flushright}
+
+{\bf Reader: }\rule[-0.1cm]{11.25cm}{0.01cm}
+\vspace{-0.5cm}
+\begin{flushright}
+\hfill\parbox[right]{6cm}
+    {\begin{flushright} \hfill Barak Obama \newline
+    \hfill Professor of Media Art \& Sciences \newline
+    \hfill MIT Media Lab \end{flushright}}
+\end{flushright}
+
+{\bf Reader: }\rule[-0.1cm]{11.25cm}{0.01cm}
+\vspace{-0.5cm}
+\begin{flushright}
+\hfill\parbox[right]{6cm}
+    {\begin{flushright} \hfill Vladimir Putin  \newline
+    \hfill Professor of Media Art \& Sciences \newline
+    \hfill MIT Media Lab \end{flushright}}
+\end{flushright}
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLE OF CONTENTS
+\renewcommand{\contentsname}{Table Of Contents}
+% remove dots to toc
+%\makeatletter \renewcommand{\@dotsep}{10000} \makeatother
+% add dots to toc
+\makeatletter
+\renewcommand\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{1.0em \@plus\p@}%
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\
+      \leaders\hbox{$$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$$}
+     \hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+    \endgroup
+  \fi}
+\makeatother
+
+\tableofcontents
+\setcounter{tocdepth}{2}
+\newpage
+
+
+$for(include-before)$ 
+$include-before$ 
+$endfor$ 
+$if(toc)$ \tableofcontents $endif$ 
+$body$ 
+$for(include-after)$ 
+$include-after$ 
+$endfor$
+
+
+\bibhere
+\end{document}
+
+
+\end{document}
