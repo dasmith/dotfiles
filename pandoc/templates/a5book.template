@@ -1,6 +1,6 @@
 % from http://eugenkiss.com/blog/2011/fiction-in-markdown-with-pandoc/
 
-\documentclass[ebook,article,oneside,english]{memoir}
+ \documentclass[10pt]{amsart}
 \usepackage[margin=0.6in, paperwidth=6in, paperheight=8.5in]{geometry} 
 \usepackage{booktabs}%
 \usepackage[pdftex,unicode,bookmarks,colorlinks,breaklinks,pagebackref,pdftitle={TITLE},pdfauthor={AUTHOR}]{hyperref}
@@ -9,6 +9,7 @@
 \usepackage[sc]{mathpazo} 
 %\usepackage{fancyhdr}
 \usepackage{color}
+
 \usepackage{cite}
 \linespread{1.05} % Palatino needs more leading (space between lines) 
 \pagestyle{plain} 

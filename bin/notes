@@ -16,7 +16,7 @@ import subprocess
 NOTES_PATH = "/Users/dustin/Documents/Notes"
 
 if len(sys.argv) < 2:
-  os.system("echo cd %s" % NOTES_PATH)
+  print "cd", NOTES_PATH
   sys.exit(1)
 docs = []
 

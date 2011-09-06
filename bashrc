@@ -48,9 +48,12 @@ if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
 elif [ $THISHOST = "intern04" ]; then
   source ~/aliases.nokia
 fi
-     
+
+
 # Load in .bashrc -------------------------------------------------
 source ~/.aliases   
 
 export PIP_RESPECT_VIRTUALENV=true
-export WORKON_HOME=/Users/dustin/py
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh 
