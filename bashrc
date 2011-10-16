@@ -40,11 +40,11 @@ fi
 if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
   # Amazon and Start Cluster stuff
   export EC2_HOME=~/.ec2
-  source $EC2_HOME/config
-  export PATH=$PATH:$EC2_HOME/bin
-  export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
-  export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
-  export PATH=$PATH:$EC2_HOME/bin
+  #source $EC2_HOME/config
+  #export PATH=$PATH:$EC2_HOME/bin
+  #export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
+  #export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
+  #export PATH=$PATH:$EC2_HOME/bin
 elif [ $THISHOST = "intern04" ]; then
   source ~/aliases.nokia
 fi
