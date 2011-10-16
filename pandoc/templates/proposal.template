@@ -64,7 +64,7 @@
 \newcommand{\cer}{\textit{c.}}
 
 \newcommand{\bibhere}{\bibliographystyle{apalike}
-\bibliography{/bib/papers}}
+\bibliography{/bib/proposal}}
 %\setlength{\parindent}{0pt}
 
 \usepackage{setspace} % use \begin{spacing}{1.5}, or \onehalfspacing, etc
