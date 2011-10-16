@@ -56,6 +56,12 @@
 \usepackage{pifont}
 \usepackage{mathrsfs}
 
+% for 'aside' environment
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{aside}{thp}{lop}
+\floatname{aside}{Aside}
+
 
 %\usepackage{lmodern}
 \newcommand{\Cal}{\texttt{Event Planner} }
@@ -110,7 +116,16 @@ Cambridge, MA 02139 USA\\
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill  Wo Tang Clan \newline
+    {\begin{flushright} \hfill  Henry Lieberman \newline
+    \hfill Principle Research Scientist \newline
+    \hfill MIT Media Lab \end{flushright}}
+\end{flushright}
+
+{\bf Reader: }\rule[-0.1cm]{11.25cm}{0.01cm}
+\vspace{-0.5cm}
+\begin{flushright}
+\hfill\parbox[right]{6cm}
+    {\begin{flushright} \hfill X \newline
     \hfill Professor of Media Art \& Sciences \newline
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
@@ -119,18 +134,9 @@ Cambridge, MA 02139 USA\\
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill Barak Obama \newline
-    \hfill Professor of Media Art \& Sciences \newline
-    \hfill MIT Media Lab \end{flushright}}
-\end{flushright}
-
-{\bf Reader: }\rule[-0.1cm]{11.25cm}{0.01cm}
-\vspace{-0.5cm}
-\begin{flushright}
-\hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill Vladimir Putin  \newline
-    \hfill Professor of Media Art \& Sciences \newline
-    \hfill MIT Media Lab \end{flushright}}
+    {\begin{flushright} \hfill X \newline
+    \hfill Y \newline
+    \hfill Z \end{flushright}}
 \end{flushright}
 
 \newpage
