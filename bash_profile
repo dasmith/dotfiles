@@ -119,4 +119,3 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 # pip bash completion end
 
->>>>>>> 718920db6882705d51a28a5c5997d9139728e643
