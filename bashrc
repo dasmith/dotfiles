@@ -56,4 +56,3 @@ source ~/.aliases
 export PIP_RESPECT_VIRTUALENV=true
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh 
