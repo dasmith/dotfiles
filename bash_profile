@@ -76,8 +76,8 @@ export GIT_EDITOR='vim'
 
 
 # Bring in the other files ----------------------------------------------------
-source ~/.bashrc_help
-source ~/.bashrc_app_specific
+#source ~/.bashrc_help
+#source ~/.bashrc_app_specific
 source ~/.bashrc
 source ~/.aliases
 
