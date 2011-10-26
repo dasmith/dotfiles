@@ -16,7 +16,7 @@
 %\usepackage{twoside}
 \usepackage{booktabs}%
 \usepackage[pdftex,bookmarks,colorlinks,breaklinks,pagebackref,pdftitle={TITLE},pdfauthor={AUTHOR}]{hyperref}
-\hypersetup{linkcolor=red,citecolor=blue,filecolor=orange,urlcolor=blue}
+\hypersetup{linkcolor=blue,citecolor=green,filecolor=orange,urlcolor=blue}
 % % %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BODY OF PAPER
@@ -110,7 +110,7 @@ Cambridge, MA 02139 USA\\
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill  Wo Tang Clan \newline
+    {\begin{flushright} \hfill  Henry Lieberman \newline
     \hfill Professor of Media Art \& Sciences \newline
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
@@ -119,7 +119,7 @@ Cambridge, MA 02139 USA\\
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill Barak Obama \newline
+    {\begin{flushright} \hfill Marvin Minsky \newline
     \hfill Professor of Media Art \& Sciences \newline
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
@@ -128,7 +128,7 @@ Cambridge, MA 02139 USA\\
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill Vladimir Putin  \newline
+    {\begin{flushright} \hfill Pattie Maes  \newline
     \hfill Professor of Media Art \& Sciences \newline
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
