@@ -16,7 +16,7 @@
 %\usepackage{twoside}
 \usepackage{booktabs}%
 \usepackage[pdftex,bookmarks,colorlinks,breaklinks,pagebackref,pdftitle={TITLE},pdfauthor={AUTHOR}]{hyperref}
-\hypersetup{linkcolor=red,citecolor=blue,filecolor=orange,urlcolor=blue}
+\hypersetup{linkcolor=blue,citecolor=green,filecolor=orange,urlcolor=blue}
 % % %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BODY OF PAPER
@@ -125,8 +125,8 @@ Cambridge, MA 02139 USA\\
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill X \newline
-    \hfill Professor of Media Art \& Sciences \newline
+    {\begin{flushright} \hfill Marvin Minsky\newline
+    \hfill Professor of Media Art \& Sciences\newline
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
 
@@ -134,9 +134,9 @@ Cambridge, MA 02139 USA\\
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill X \newline
-    \hfill Y \newline
-    \hfill Z \end{flushright}}
+    {\begin{flushright} \hfill Pattie Maes\newline
+    \hfill Professor of Media Art \& Sciences\newline
+    \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
 
 \newpage
