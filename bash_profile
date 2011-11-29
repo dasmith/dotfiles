@@ -97,7 +97,6 @@ export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/op
 
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
-
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
@@ -109,6 +108,8 @@ PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH
 
 MKL_NUM_THREADS=1
+export MKL_NUM_THREADS
+
 # pip bash completion start
 _pip_completion()
 {

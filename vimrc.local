@@ -123,7 +123,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python  set tabstop=4 textwidth=79
+au FileType python set tabstop=4 textwidth=79
 
 " auto executable commands for python
 au FileType python map K :w<CR>:!screen -x ipython -X stuff $'\%autoreload 3\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
@@ -149,7 +149,6 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
