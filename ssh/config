@@ -1,0 +1,16 @@
+Host achilles
+  HostName achilles.csc.media.mit.edu
+Host abbith
+  HostName abbith.media.mit.edu
+Host yuggoth 
+  HostName yuggoth.media.mit.edu
+Host word 
+  PasswordAuthentication yes
+  HostName word.media.mit.edu
+Host ml
+  HostName ml.media.mit.edu
+Host athena
+  HostName linux.mit.edu
+  User dsmit
+
+

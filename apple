@@ -1,0 +1,7 @@
+
+# disable nimation on new windows
+# defaults write NSGlob al­Do main NSAuto mat icWin dowAn i ma tion sEn abled –bool NO
+# show hidden files
+defaults write com.apple.finder AppleShowAll­Files –bool YES
+# show full paths
+defaults write com.apple.finder _FXShowPosixPathInTitle –bool YES 
