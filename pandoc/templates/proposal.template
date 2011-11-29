@@ -16,7 +16,7 @@
 %\usepackage{twoside}
 \usepackage{booktabs}%
 \usepackage[pdftex,bookmarks,colorlinks,breaklinks,pagebackref,pdftitle={TITLE},pdfauthor={AUTHOR}]{hyperref}
-\hypersetup{linkcolor=blue,citecolor=green,filecolor=orange,urlcolor=blue}
+\hypersetup{linkcolor=blue,citecolor=purple,filecolor=orange,urlcolor=blue}
 % % %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BODY OF PAPER
