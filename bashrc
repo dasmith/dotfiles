@@ -49,6 +49,8 @@ elif [ $THISHOST = "intern04" ]; then
   source ~/aliases.nokia
 fi
 
+# gem dir
+export PATH=$PATH:/usr/local/Cellar/ruby/1.9.2-p180/bin
 
 # Load in .bashrc -------------------------------------------------
 source ~/.aliases   
