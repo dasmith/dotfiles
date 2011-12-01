@@ -16,7 +16,8 @@ set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
-
+" Use 'w!!' to switch to sudo if you forgot to type 'sudo' beforehand
+cmap w!! %!sudo tee > /dev/null %
 " set paste
 
 " Searching
@@ -55,7 +56,11 @@ nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
-
+" pyflakes 
+if has("gui_running") 
+  highlight SpellBad term=underline gui=undercurl guisp=Orange 
+endif 
+"let g:pyflakes_use_quickfix = 0
 
 " Command-T configuration
 let g:CommandTMaxHeight=20
