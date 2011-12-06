@@ -10,7 +10,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{fancyhdr}
-\usepackage{color}
+
+% use one of the two colors
+%\usepackage{color}
+\usepackage[usenames,dvipsnames]{color}
+
 \usepackage{cite}
 %\usepackage{symbols}%     Provides a few math symbols (replaced with DJCMamssymb) 
 %\usepackage{twoside}
@@ -86,6 +90,9 @@
 %
 \newcommand{\g}[2]{\textsc{#1}.\textbf{#2}}
 
+
+% user text display
+\newcommand{\user}[1]{\textcolor{WildStrawberry}{\textsf{``#1''}}}
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 \begin{document}
