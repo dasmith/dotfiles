@@ -38,7 +38,7 @@
 \setlength\topmargin{0in}
 \setlength\headheight{12pt}
 \setlength\headsep{0in}
-\setlength\textheight{7.7in}
+\setlength\textheight{8.5in}
 \setlength\textwidth{5.8in}
 \setlength\oddsidemargin{-0.2in}
 \setlength\evensidemargin{0in}
@@ -53,6 +53,9 @@
 \usepackage[position=top]{subfig}
 
 \usepackage{amsmath, amsthm, amssymb}
+
+\usepackage{wrapfig} % to wrap text around figures
+% http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
 
 \usepackage{verbatim}
 
