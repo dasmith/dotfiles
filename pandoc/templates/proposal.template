@@ -120,6 +120,12 @@ Cambridge, MA 02139 USA\\
 \setlength{\signaturespace}{.5in}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%% PAPER TITLE AND AUTHOR
+\title{$title$}
+\date{\today}
+\maketitle
+
 %%%%%%%%%%%%%%%%%%%%%%%%%% ADVISOR AND READERS INFO
 \vspace{1.5cm}
 
