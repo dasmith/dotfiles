@@ -108,7 +108,7 @@
 Massachusetts Institute of Technology  \\
 20 Ames ST, E15-446\\
 Cambridge, MA 02139 USA\\
-{\tt\small dsmit@mit.edu}
+{\tt\small dustin@media.mit.edu}
 %\and Jane Doe\\
 %Massachusetts Institute of Technology  \\
 %20 Ames ST, E15-777\\
@@ -123,31 +123,44 @@ Cambridge, MA 02139 USA\\
 %%%%%%%%%%%%%%%%%%%%%%%%%% ADVISOR AND READERS INFO
 \vspace{1.5cm}
 
-{\bf Advisor: }\rule[-0.1cm]{11.25cm}{0.01cm}
+{\bf Advisor: }\rule[-0.1cm]{12.0cm}{0.02cm}
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
     {\begin{flushright} \hfill  Henry Lieberman \newline
-    \hfill Principle Research Scientist\newline
+    \hfill Principle Research Scientist \\
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
 
-{\bf Reader: }\rule[-0.1cm]{11.25cm}{0.01cm}
+\vspace{0.3cm}
+{\bf Reader: }\rule[-0.1cm]{12.38cm}{0.01cm}
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
     {\begin{flushright} \hfill Marvin Minsky\newline
-    \hfill Professor of Media Art \& Sciences\newline
+    \hfill Professor of Media Art \& Sciences\\
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
 
-{\bf Reader: }\rule[-0.1cm]{11.25cm}{0.01cm}
+\vspace{0.3cm}
+{\bf Reader: }\rule[-0.1cm]{12.38cm}{0.01cm}
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
     {\begin{flushright} \hfill Pattie Maes\newline
-    \hfill Professor of Media Art \& Sciences\newline
+    \hfill Professor of Media Art \& Sciences\\
     \hfill MIT Media Lab \end{flushright}}
+\end{flushright}
+
+
+\vspace{0.3cm}
+{\bf Reader: }\rule[-0.1cm]{12.38cm}{0.01cm}
+\vspace{-0.5cm}
+\begin{flushright}
+\hfill\parbox[right]{6cm}
+    {\begin{flushright} \hfill Christopher W. Geib\newline
+    \hfill Research Fellow \\
+    \hfill University of Edinburgh \end{flushright}}
 \end{flushright}
 
 \newpage
