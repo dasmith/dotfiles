@@ -116,20 +116,19 @@ Cambridge, MA 02139 USA\\
 %{\tt\small jdoe@media.mit.edu}
 }
 
+\newlength{\signaturespace}
+\setlength{\signaturespace}{.5in}
 
-%%%%%%%%%%%%%%%%%%%%%%%%% PAPER TITLE AND AUTHOR
-\title{$title$}
-\date{\today}
-\maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% ADVISOR AND READERS INFO
 \vspace{1.5cm}
+
 {\bf Advisor: }\rule[-0.1cm]{11.25cm}{0.01cm}
 \vspace{-0.5cm}
 \begin{flushright}
 \hfill\parbox[right]{6cm}
     {\begin{flushright} \hfill  Henry Lieberman \newline
-    \hfill Principle Research Scientist \newline
+    \hfill Principle Research Scientist\newline
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
 
