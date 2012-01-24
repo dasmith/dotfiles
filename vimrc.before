@@ -199,6 +199,6 @@ set modeline
 set modelines=10
 
 " colorscheme
-set background=dark
-colorscheme railscasts2 
+" set background=dark
+" colorscheme railscasts2 
 

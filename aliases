@@ -2,7 +2,7 @@
 platform='unknown'
 
 uname=`uname`
-export PYTHONPATH=$PYTHONPATH:~/Documents/Projects/goals/mongo/:/Users/dustin/Documents/Projects/Others/scin/scin/
+export PYTHONPATH=$PYTHONPATH:~/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:~/Documents/Projects/beansprock-algorithm
 PANDA_VERSION=1.7
 PANDA_PATH=/Developer/Panda3d/lib
 export PYTHONPATH=$PANDA_PATH:$PYTHONPATH:/Users/dustin/Documents/Projects/goals/:~/.py-dustin/:~/Documents/Projects/py-dustin/:~/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
