@@ -1,9 +1,15 @@
 set nocompatible
-
 set hidden
 set number
 set ruler
 syntax on
+
+" Reselect visual block after indent 
+vnoremap < <gv
+vnoremap > >gv
+
+" select all
+map <Leader>a ggVG
 
 " Set encoding
 set encoding=utf-8
@@ -136,6 +142,7 @@ au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR
 
 au FileType qml map K :w<CR>:!/home/dussmith/lighthouse/sphone-sylph/bin/sylph ~/lighthouse/sphone-sylph/skins/sphone.xml &<CR>:!cd /home/dussmith/lighthouse/sphone-ics; ./run_oskeet<CR><CR>
 
+" auto execute commands for prolog
 "au FileType qml map K :w<CR>:!screen -x prolog -X stuff $'\n\ncd %:p:h \n qmlviewer  %:t\n'<CR><CR>
 au FileType prolog map K :w<CR>:!screen -x prolog -X stuff $'halt.\n\ncd %:p:h \n /usr/local/bin/yap \n [%:t:r].\n'<CR><CR>
 

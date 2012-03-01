@@ -1,5 +1,6 @@
+vim_plugin_task "vim-ipython", "https://github.com/ivanov/vim-ipython.git"
 vim_plugin_task "pandoc", "https://github.com/clvv/vim-pandoc.git"
 vim_plugin_task "pytest", "https://github.com/alfredodeza/pytest.vim.git"
 vim_plugin_task "pyflakes", "https://github.com/kevinw/pyflakes-vim.git"
-vim_plugin_task "makegreen", "https://github.com/reinh/vim-makegreen"
-vim_plugin_task "vim-ipython", "https://github.com/ivanov/vim-ipython"
+vim_plugin_task "makegreen", "https://github.com/reinh/vim-makegreen.git"
+
