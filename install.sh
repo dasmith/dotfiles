@@ -9,4 +9,5 @@ ln -Fs ${D}/vimrc.before ../.vimrc.before
 ln -Fs ${D}/gvimrc.after ../.gvimrc.after
 ln -Fs ${D}/pandoc ../.pandoc
 ln -Fs ${D}/janus.rake ../.janus.rake
+ln -Fs ${D}/apple ../.osx
 
