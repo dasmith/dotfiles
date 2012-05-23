@@ -137,7 +137,7 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 au FileType python set tabstop=4 textwidth=79
 
 " auto executable commands for python
-au FileType python map K :w<CR>:!screen -x ipython -X stuff $'\%autoreload 3\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
+au FileType python map K :w<CR>:!screen -x ipython -X stuff $'\%load_ext autoreload\n\%autoreload 2\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
 au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR>:!screen -AmdS ipython ipython:!screen -R ipython
 
 au FileType qml map K :w<CR>:!/home/dussmith/lighthouse/sphone-sylph/bin/sylph ~/lighthouse/sphone-sylph/skins/sphone.xml &<CR>:!cd /home/dussmith/lighthouse/sphone-ics; ./run_oskeet<CR><CR>

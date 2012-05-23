@@ -21,6 +21,8 @@ function parse_git_branch {
 git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
+export TEXTMF=/usr/local/texlive/2011/texmf/
+
 if [ $THISHOST = "UTM" ]; then 
   #alias eclim='/Applications/eclipse/eclimd'
   export ARCHFLAGS='-arch x86_64'
@@ -50,7 +52,7 @@ elif [ $THISHOST = "intern04" ]; then
 fi
 
 # gem dir
-export PATH=$PATH:/usr/local/Cellar/ruby/1.9.2-p180/bin
+export PATH=/usr/local/texlive/2011/bin/x86_64-darwin:$PATH:/usr/local/Cellar/ruby/1.9.2-p180/bin
 
 # Load in .bashrc -------------------------------------------------
 source ~/.aliases   
@@ -58,4 +60,5 @@ source ~/.aliases
 export PIP_RESPECT_VIRTUALENV=true
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-PYTHONPATH=/Developer/Panda3d/lib:/Developer/Panda3d/lib::/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/beansprock-algorithm:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/beansprock-algorithm:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin
+export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
+PYTHONPATH=/Developer/Panda3d/lib:/Developer/Panda3d/lib::/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/beansprock-algorithm:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/beansprock-algorithm:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin:$GOOGLE_APP_ENGINE:/Users/dustin/Documents/Projects/event-ui/server/nlplanners
