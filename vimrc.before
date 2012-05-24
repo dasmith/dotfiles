@@ -213,4 +213,4 @@ set shortmess=at
 " colorscheme
 " set background=dark
 
-let g:pyflakes_use_quickfix = 0
+"let g:pyflakes_use_quickfix = 0
