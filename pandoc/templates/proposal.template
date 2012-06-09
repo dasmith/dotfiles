@@ -19,7 +19,8 @@
 %\PassOptionsToPackage{pdftex,usenames,dvipsnames}{color}
 
 \usepackage{color}
-\definecolor{WildStrawberry}{RGB}{255,127,0}
+\definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
+\newcommand{\user}[1]{\textcolor{usertextcolor}{\textsf{``#1''}}}
 \usepackage{cite}
 %\usepackage{symbols}%     Provides a few math symbols (replaced with DJCMamssymb) 
 %\usepackage{twoside}
@@ -72,6 +73,8 @@
 \setlength\marginparsep{8pt} % space separating text body from margin (default 10pt)
 \setlength\marginparwidth{2in} % space of margin
 
+
+\usepackage{linguex}
 \usepackage{float}
 \floatstyle{ruled}
 \newfloat{aside}{thp}{lop}
@@ -97,13 +100,22 @@
 \floatstyle{ruled}
 \newfloat{aside}{thp}{lop}
 \floatname{aside}{Aside}
-
+\usepackage{stmaryrd}
 
 %\usepackage{lmodern}
 \newcommand{\Cal}{\texttt{Event Planner} }
 %\newcommand{\eg}{\textit{e.g.}, }
 \newcommand{\ie}{\textit{i.e.}, }
 \newcommand{\cer}{\textit{c.}}
+\newcommand{\cgi}[1]{\Phi_{#1}}
+\newcommand{\cgs}[1]{\Psi_{#1}}
+\newcommand{\cgb}[1]{\Phi_{\mathbf{#1}}}
+\newcommand{\cgbi}[2]{\Phi_{\mathbf{#1}}^{#2}}
+\newcommand{\interps}{\mathbf\Omega}
+
+\newcommand{\interpi}[1]{\mathbf{\omega_{#1}}}
+\newcommand{\interpe}[1]{\llbracket \interpi{#1} \rrbracket}
+\newcommand{\interpecg}[2]{\llbracket \interpi{#1} \rrbracket^{\cgi{#2}}}
 
 \newcommand{\bibhere}{\bibliographystyle{apalike}
 \bibliography{/bib/proposal}}
@@ -123,8 +135,6 @@
 \newcommand{\g}[2]{\textsc{#1}.\textbf{#2}}
 
 
-% user text display
-\newcommand{\user}[1]{\textcolor{WildStrawberry}{\textsf{``#1''}}}
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 \begin{document}
