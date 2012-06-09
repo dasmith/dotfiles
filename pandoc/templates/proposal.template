@@ -5,6 +5,7 @@
 \documentclass[10pt]{article}
 \usepackage[pdftex]{graphicx}
 %\usepackage{times}
+\usepackage{linguex}
 \usepackage{epsfig}
 %\usepackage{amsmath}
 \usepackage[utf8]{inputenc}
@@ -100,7 +101,7 @@
 
 %\usepackage{lmodern}
 \newcommand{\Cal}{\texttt{Event Planner} }
-\newcommand{\eg}{\textit{e.g.}, }
+%\newcommand{\eg}{\textit{e.g.}, }
 \newcommand{\ie}{\textit{i.e.}, }
 \newcommand{\cer}{\textit{c.}}
 
