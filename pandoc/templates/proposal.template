@@ -3,6 +3,10 @@
 
 
 \documentclass[10pt]{article}
+% use one of the two colors
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY OF PAPER
+
 \usepackage[pdftex]{graphicx}
 %\usepackage{times}
 \usepackage{epsfig}
@@ -12,15 +16,13 @@
 \usepackage{fancyhdr}
 \usepackage{mdframed}
 \usepackage{framed}
-% use one of the two colors
 
 %\usepackage[usenames,dvipsnames]{color}
 %\PassOptionsToPackage{pdftex,usenames,dvipsnames}{color}
-
-\usepackage{color}
-\definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
-\newcommand{\user}[1]{\textcolor{usertextcolor}{\textsf{``#1''}}}
 \usepackage{cite}
+\usepackage{fancyvrb}
+\usepackage{color}
+
 %\usepackage{symbols}%     Provides a few math symbols (replaced with DJCMamssymb) 
 %\usepackage{twoside}
 \usepackage{booktabs}%
@@ -28,52 +30,9 @@
 \hypersetup{linkcolor=blue,citecolor=blue,filecolor=orange,urlcolor=blue}
 % % %
 
-%% code highlighting stuff
-\usepackage{fancyvrb}
-\DefineShortVerb[commandchars=\\\{\}]{\|}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY OF PAPER
 
-\pdfpagewidth 8.5in
-\pdfpageheight 11in
-\itemsep 1pt
-\normallineskip 1pt
-\def\baselinestretch{1}
-\parskip 0pt  \parindent 20pt 
-\topsep 0pt   % topskip in list-environment
-\partopsep 3pt% 
-\itemsep 0pt% skip between items
-
-\setlength\topmargin{0in}
-\setlength\headheight{12pt}
-\setlength\headsep{0in}
-\setlength\textheight{8.5in}
-\setlength\textwidth{5.8in}
-\setlength\oddsidemargin{-0.2in}
-\setlength\evensidemargin{0in}
-\setlength\marginparsep{8pt} % space separating text body from margin (default 10pt)
-\setlength\marginparwidth{2in} % space of margin
-
-
-\usepackage{linguex}
 \usepackage{float}
 \floatstyle{ruled}
 \newfloat{aside}{thp}{lop}
@@ -100,21 +59,35 @@
 \newfloat{aside}{thp}{lop}
 \floatname{aside}{Aside}
 \usepackage{stmaryrd}
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\itemsep 1pt
+\normallineskip 1pt
+\def\baselinestretch{1}
+\parskip 0pt  \parindent 20pt 
+\topsep 0pt   % topskip in list-environment
+\partopsep 3pt% 
+\itemsep 0pt% skip between items
+
+\setlength\topmargin{0in}
+\setlength\headheight{12pt}
+\setlength\headsep{0in}
+\setlength\textheight{8.5in}
+\setlength\textwidth{5.8in}
+\setlength\oddsidemargin{-0.2in}
+\setlength\evensidemargin{0in}
+\setlength\marginparsep{8pt} % space separating text body from margin (default 10pt)
+\setlength\marginparwidth{2in} % space of margin
+
+
+\usepackage{linguex}
 
 %\usepackage{lmodern}
-\newcommand{\Cal}{\texttt{Event Planner} }
-%\newcommand{\eg}{\textit{e.g.}, }
-\newcommand{\ie}{\textit{i.e.}, }
-\newcommand{\cer}{\textit{c.}}
-\newcommand{\cgi}[1]{\Phi_{#1}}
-\newcommand{\cgs}[1]{\Psi_{#1}}
-\newcommand{\cgb}[1]{\Phi_{\mathbf{#1}}}
-\newcommand{\cgbi}[2]{\Phi_{\mathbf{#1}}^{#2}}
-\newcommand{\interps}{\mathbf\Omega}
 
 \newcommand{\interpi}[1]{\mathbf{\omega_{#1}}}
 \newcommand{\interpe}[1]{\llbracket \interpi{#1} \rrbracket}
 \newcommand{\interpecg}[2]{\llbracket \interpi{#1} \rrbracket^{\cgi{#2}}}
+
 
 \newcommand{\bibhere}{\bibliographystyle{apalike}
 \bibliography{/bib/proposal}}
@@ -128,12 +101,46 @@
 \let\PBS=\PreserveBackslash
 \usepackage{enumerate}
 
+
+
+
+\definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
+\newcommand{\user}[1]{\textcolor{usertextcolor}{\textsf{``#1''}}}
+%% code highlighting stuff
+\DefineShortVerb[commandchars=\\\{\}]{\|}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+
+
+\newcommand{\ieg}{\textit{e.g.}, }
+\newcommand{\ie}{\textit{i.e.}, }
+\newcommand{\cer}{\textit{c.}}
+\newcommand{\cgi}[1]{\Phi_{#1}}
+\newcommand{\cgs}[1]{\Psi_{#1}}
+\newcommand{\cgb}[1]{\Phi_{\mathbf{#1}}}
+\newcommand{\cgbi}[2]{\Phi_{\mathbf{#1}}^{#2}}
+\newcommand{\interps}{\mathbf\Omega}
+
+
 \newcommand{\prop}[2]{\texttt{#1(}\textsf{#2}\texttt{)}}
 \newcommand{\pred}[3]{\texttt{#1(}\textsf{#2}\texttt{,}\textsf{#3}\texttt{)}}
 %
 \newcommand{\g}[2]{\textsc{#1}.\textbf{#2}}
-
-
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 \begin{document}
@@ -251,4 +258,3 @@ $endfor$
 \end{document}
 
 
-\end{document}
