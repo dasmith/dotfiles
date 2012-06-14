@@ -39,6 +39,14 @@ $if(fancy-enums)$
 }\makeatother
 \usepackage{enumerate}
 $endif$
+
+\usepackage{color}
+
+%\usepackage[pdftex,bookmarks,colorlinks,breaklinks,pagebackref,pdftitle={TITLE},pdfauthor={AUTHOR}]{hyperref}
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=orange,urlcolor=blue}
+
+
+
 $if(tables)$
 \usepackage{array}
 % This is needed because raggedright in table elements redefines \\:
@@ -58,6 +66,7 @@ $if(url)$
 $endif$
 $if(graphics)$
 \usepackage{graphicx}
+
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
 % are scaled down if they would overflow the margins.
@@ -96,6 +105,43 @@ $if(date)$
 $endif$
 
 \begin{document}
+	
+	\definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
+	\newcommand{\user}[1]{\textcolor{usertextcolor}{\textsf{``#1''}}}
+	%% code highlighting stuff
+	% Add ',fontsize=\small' for more characters per line
+	\newenvironment{Shaded}{}{}
+	\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+	\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+	\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+	\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+	\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+	\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+	\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+	\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+	\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+	\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+	\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+	\newcommand{\RegionMarkerTok}[1]{{#1}}
+	\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+	\newcommand{\NormalTok}[1]{{#1}}
+
+
+	\newcommand{\ieg}{\textit{e.g.}, }
+	\newcommand{\ie}{\textit{i.e.}, }
+	\newcommand{\cer}{\textit{c.}}
+	\newcommand{\cgi}[1]{\Phi_{#1}}
+	\newcommand{\cgs}[1]{\Psi_{#1}}
+	\newcommand{\cgb}[1]{\Phi_{\mathbf{#1}}}
+	\newcommand{\cgbi}[2]{\Phi_{\mathbf{#1}}^{#2}}
+	\newcommand{\interps}{\mathbf\Omega}
+
+
+	\newcommand{\prop}[2]{\texttt{#1(}\textsf{#2}\texttt{)}}
+	\newcommand{\pred}[3]{\texttt{#1(}\textsf{#2}\texttt{,}\textsf{#3}\texttt{)}}
+	%
+	\newcommand{\g}[2]{\textsc{#1}.\textbf{#2}}
+	
 $if(title)$
 \maketitle
 $endif$
