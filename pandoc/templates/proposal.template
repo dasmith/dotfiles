@@ -79,6 +79,7 @@
 \setlength\evensidemargin{0in}
 \setlength\marginparsep{8pt} % space separating text body from margin (default 10pt)
 \setlength\marginparwidth{2in} % space of margin
+\usepackage{parallel}
 
 
 \usepackage{linguex}
@@ -140,7 +141,8 @@
 
 \newcommand{\prop}[2]{\texttt{#1(}\textsf{#2}\texttt{)}}
 \newcommand{\pred}[3]{\texttt{#1(}\textsf{#2}\texttt{,}\textsf{#3}\texttt{)}}
-%
+
+\newcommand{\quest}[1]{\textsc{Q}.\textbf{#1}}
 \newcommand{\g}[2]{\textsc{#1}.\textbf{#2}}
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
@@ -212,6 +214,18 @@ Cambridge, MA 02139 USA\\
     \hfill Research Fellow \\
     \hfill University of Edinburgh \end{flushright}}
 \end{flushright}
+
+
+\vspace{0.3cm}
+{\bf Reader: }\rule[-0.1cm]{12.38cm}{0.01cm}
+\vspace{-0.5cm}
+\begin{flushright}
+\hfill\parbox[right]{6cm}
+    {\begin{flushright} \hfill Agust\'in Rayo\newline
+    \hfill Associate Professor of Philosophy  \\
+    \hfill Massachusetts Institute of Technology \end{flushright}}
+\end{flushright}
+
 
 \newpage
 
