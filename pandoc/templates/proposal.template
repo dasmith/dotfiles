@@ -74,7 +74,7 @@
 \setlength\headheight{12pt}
 \setlength\headsep{0in}
 \setlength\textheight{8.5in}
-\setlength\textwidth{5.8in}
+\setlength\textwidth{6.1in}
 \setlength\oddsidemargin{-0.2in}
 \setlength\evensidemargin{0in}
 \setlength\marginparsep{8pt} % space separating text body from margin (default 10pt)
@@ -85,13 +85,13 @@
 \usepackage{linguex}
 
 %\usepackage{lmodern}
-
+\newcommand{\iss}[1]{\(\mathbf{I{#1}}\)}
 \newcommand{\interpi}[1]{\mathbf{\omega_{#1}}}
 \newcommand{\interpe}[1]{\llbracket \interpi{#1} \rrbracket}
 \newcommand{\interpecg}[2]{\llbracket \interpi{#1} \rrbracket^{\cgi{#2}}}
 
 
-\newcommand{\bibhere}{\bibliographystyle{apalike}
+\newcommand{\bibhere}{\footnotesize\bibliographystyle{apalike}
 \bibliography{/bib/proposal}}
 %\setlength{\parindent}{0pt}
 

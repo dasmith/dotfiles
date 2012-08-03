@@ -17,6 +17,7 @@ alias py27="defaults write com.apple.versioner.python Version 2.7"
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
+alias nt='nosetests --rednose'
 #/opt/local/lib/postgresql83/bin/pg_ctl -D /usr/local/psql/data -l postgres.log start"'
 # Note, default OS is assumed to be OSX
 alias brutus='ssh dustin@brutus.csc.media.mit.edu' 
@@ -32,6 +33,10 @@ alias ag='sudo aptitude install'
 # Development
 alias ipl='screen -R prolog'
 alias ipy='screen -AmdS ipython ipython ; screen -R ipython'
+alias ipyn='screen -AmdS ipython "ipython notebook --pylab inline" ; screen -R ipython'
+
+
+
 alias qmake=/home/dussmith/QtSDK/Desktop/Qt/473/gcc/bin/qmake
 alias espresso='~/py-dustin/habitphone/Espresso/bin/espresso.js'
 
