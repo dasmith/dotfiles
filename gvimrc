@@ -4,6 +4,7 @@ set shortmess=at
 
 
 
+
 if has('statusline')
   set laststatus=2
 	" Broken down into easily includeable segments
