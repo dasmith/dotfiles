@@ -38,7 +38,6 @@ colorscheme railscasts2
 " Markdown documents in left pane
 Bundle "vim-scripts/VOoM.git"
 
-
 Bundle "ervandew/supertab.git"
 
 Bundle 'msanders/snipmate.vim.git'
@@ -47,6 +46,7 @@ let g:snipMateAllowMatchingDot = 0
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
 let NERDTreeWinSize=35
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 nmap <leader>n :NERDTree<cr>
 
 " Syntax highlight
