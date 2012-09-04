@@ -43,6 +43,7 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
+Bundle 'spolu /dwm.vim.git'
 
 " original repos on github
 Bundle "git.zip"
@@ -77,7 +78,9 @@ let g:ctrlp_custom_ignore = {
 " Syntax highlight
 Bundle "cucumber.zip"
 " Bundle "Markdown"
-Bundle "chrismetcalf/vim-rainbow.git"
+Bundle "Soares/rainbow.vim.git"
+
+"Bundle "chrismetcalf/vim-rainbow.git"
 
 " Python
 Bundle "cburroughs/pep8.py"
