@@ -34,9 +34,8 @@ if [ $THISHOST = "UTM" ]; then
   export PATH=/Developer/Tools/Panda3d/bin:/usr/local/bin/:$PATH:/Users/dustin/.vim/scmindent:$HOME/Library/Haskell/bin
   source /Users/dustin/Documents/Projects/Others/StarCluster/completion/starcluster-completion.sh
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
-  export PS1='\[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ ' # no hostname
-else
-  export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+  #export PS1='\[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ ' # no hostname
+  #export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 fi
 
 if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
@@ -50,6 +49,13 @@ if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
 elif [ $THISHOST = "intern04" ]; then
   source ~/aliases.nokia
 fi
+
+# path using powerline-bash
+function _update_ps1()
+{ 
+        export PS1="$(~/dotfiles/powerline-bash.py $?)"
+}
+export PROMPT_COMMAND="_update_ps1"
 
 # gem dir
 export PATH=/usr/local/texlive/2011/bin/x86_64-darwin:$PATH:/usr/local/Cellar/ruby/1.9.2-p180/bin
