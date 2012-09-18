@@ -6,7 +6,6 @@ export CLICOLOR=1;
 export IKARUS_LIBRARY_PATH=.:/Users/dustin/Documents/Projects/Others/mit-church:IKARUS_LIBRARY_PATH
 export JAVA_OPTS="$JAVA_OPTS -Dsolr.solr.home=/usr/local/tomcat6/solr"
 
-PS1='\[\033k\033\\\]\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 # Identify OS and Machine -----------------------------------------
 export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
 export OSVERSION=`uname -r`; OSVERSION=`expr "$OSVERSION" : '[^0-9]*\([0-9]*\.[0-9]*\)'`
@@ -25,24 +24,23 @@ export TEXTMF=/usr/local/texlive/2011/texmf/
 
 # path using powerline-bash
 function _update_ps1() { 
-        export PS1="$(~/dotfiles/powerline-bash.py $?)" 
+  export PS1="$(~/dotfiles/powerline-bash.py $?)" 
 }
 function _update_ps1_host() { 
-        export PS1="\h $(~/dotfiles/powerline-bash.py $?)" 
+  export PS1="$THISHOST:$(~/dotfiles/powerline-bash.py $?)" 
 }
 function _update_ps1_user() { 
-  export PS1="\u $(~/dotfiles/powerline-bash.py $?)"
+ export PS1="$(whoami):$(~/dotfiles/powerline-bash.py $?)"
 }
 function _update_ps1_host_user() {
-  export PS1="\u@\h $(~/dotfiles/powerline-bash.py $?)"
+  export PS1="$(whoami)@$THISHOST:$(~/dotfiles/powerline-bash.py $?)"
 }
-
 export PROMPT_COMMAND="_update_ps1"
-if [$THISHOST == "UTM"]; then
-    export PROMPT_COMMAND=$PROMPT_COMMAND+"_host"
+if [ $THISHOST != "UTM" ]; then
+    export PROMPT_COMMAND=$PROMPT_COMMAND"_host"
 fi
-if ["$(whoami)" != "dustin"]; then
-    export PROMPT_COMMAND=$PROMPT_COMMAND+"_user"
+if [ "$(whoami)" != "dustin" ]; then
+    export PROMPT_COMMAND=$PROMPT_COMMAND"_user"
 fi
 
 if [ $THISHOST = "UTM" ]; then 
@@ -84,4 +82,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export GAE_SDK_ROOT=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
 export PYTHONPATH=/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib/:/Users/dustin/Documents/Projects/event-ui/server/:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin:$GAE_SDK_ROOT:$GAE_SDK_ROOT/lib/
 export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
-launchctl setenv PYTHONPATH $PYTHONPATH
+
+if [ $PLATFORM == "darwin" ]; then
+  launchctl setenv PYTHONPATH $PYTHONPATH
+fi
