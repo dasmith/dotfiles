@@ -24,16 +24,25 @@ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse
 export TEXTMF=/usr/local/texlive/2011/texmf/
 
 # path using powerline-bash
+function _update_ps1() { 
+        export PS1="$(~/dotfiles/powerline-bash.py $?)" 
+}
+function _update_ps1_host() { 
+        export PS1="\h $(~/dotfiles/powerline-bash.py $?)" 
+}
+function _update_ps1_user() { 
+  export PS1="\u $(~/dotfiles/powerline-bash.py $?)"
+}
+function _update_ps1_host_user() {
+  export PS1="\u@\h $(~/dotfiles/powerline-bash.py $?)"
+}
+
+export PROMPT_COMMAND="_update_ps1"
 if [$THISHOST == "UTM"]; then
-function _update_ps1()
-{ 
-    export PS1="$(~/dotfiles/powerline-bash.py $?)"
-}
-else
-function _update_ps1()
-{ 
-    export PS1="\u@\h $(~/dotfiles/powerline-bash.py $?)"
-}
+    export PROMPT_COMMAND=$PROMPT_COMMAND+"_host"
+fi
+if ["$(whoami)" != "dustin"]; then
+    export PROMPT_COMMAND=$PROMPT_COMMAND+"_user"
 fi
 
 if [ $THISHOST = "UTM" ]; then 
@@ -49,7 +58,7 @@ if [ $THISHOST = "UTM" ]; then
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
 fi
 
-export PROMPT_COMMAND="_update_ps1"
+
 
 if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
   # Amazon and Start Cluster stuff
