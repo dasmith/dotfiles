@@ -36,14 +36,8 @@ function _update_ps1_host_user() {
   export PS1="$(whoami)@$THISHOST:$(~/dotfiles/powerline-bash.py $?)"
 }
 export PROMPT_COMMAND="_update_ps1"
-if [ $THISHOST != "UTM" ]; then
-    export PROMPT_COMMAND=$PROMPT_COMMAND"_host"
-fi
-if [ "$(whoami)" != "dustin" ]; then
-    export PROMPT_COMMAND=$PROMPT_COMMAND"_user"
-fi
 
-if [ $THISHOST = "UTM" ]; then 
+if [ $THISHOST = "UTM" -o $THISHOST = "Turing" ]; then 
   #alias eclim='/Applications/eclipse/eclimd'
   export ARCHFLAGS='-arch x86_64'
   export JAVA_HOME="/usr/lib/jvm/java-6-sun"
@@ -52,10 +46,15 @@ if [ $THISHOST = "UTM" ]; then
   export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
   #source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
   export PATH=/Developer/Tools/Panda3d/bin:/usr/local/bin/:$PATH:/Users/dustin/.vim/scmindent:$HOME/Library/Haskell/bin
-  source /Users/dustin/Documents/Projects/Others/StarCluster/completion/starcluster-completion.sh
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
+else
+  export PROMPT_COMMAND=$PROMPT_COMMAND"_host"
 fi
 
+# add username to the prompt if not dustin
+if [ "$(whoami)" != "dustin" ]; then
+    export PROMPT_COMMAND=$PROMPT_COMMAND"_user"
+fi
 
 
 if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then

@@ -61,6 +61,7 @@ alias proj='cd ~/Documents/Projects'
 alias doc='cd ~/Documents'
 alias todo='vi ~/Desktop/TODO.md'
 alias class='cd /Users/dustin/Documents/Classes/'
+alias notes='cd ~/Dropbox/Notes/'
 
 # Personal tools --------------------------------------------------------
 alias rents='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/Home/rents/2011.txt ; vi ~/Documents/Personal/Home/rents/2011.txt'
