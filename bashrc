@@ -47,6 +47,8 @@ if [ $THISHOST = "UTM" ]; then
   export PATH=/Developer/Tools/Panda3d/bin:/usr/local/bin/:$PATH:/Users/dustin/.vim/scmindent:$HOME/Library/Haskell/bin
   source /Users/dustin/Documents/Projects/Others/StarCluster/completion/starcluster-completion.sh
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
+else
+ PATH=$PATH:/usr/local/lib/python2.6/dist-packages/google/appengine/tools/
 fi
 
 export PROMPT_COMMAND="_update_ps1"
