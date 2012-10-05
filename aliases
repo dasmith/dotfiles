@@ -26,13 +26,13 @@ alias achilles='ssh dustin@achilles.csc.media.mit.edu'
 alias yuggoth='ssh dustin@yuggoth.media.mit.edu'
 alias abbith='ssh dustin@abbith.media.mit.edu' 
 alias ml='ssh ml.media.mit.edu'
-alias athena='ssh dsmit@dialup.athena.mit.edu'
+alias athena='ssh dsmit@linux.mit.edu'
 alias as='sudo apt-cache search'
 alias ag='sudo aptitude install'
 
 # Development
 alias ipl='screen -R prolog'
-alias ipy='ipython notebook --pylab inline'
+alias ipy='ipython notebook --pylab inline --profile default'
 # alias ipy='screen -AmdS ipython ipython ; screen -R ipython'
 alias ipyn='screen -AmdS ipython "ipython notebook --pylab inline" ; screen -R ipython'
 
@@ -61,6 +61,7 @@ alias proj='cd ~/Documents/Projects'
 alias doc='cd ~/Documents'
 alias todo='vi ~/Desktop/TODO.md'
 alias class='cd /Users/dustin/Documents/Classes/'
+alias notes='cd ~/Dropbox/Notes/'
 
 # Personal tools --------------------------------------------------------
 alias rents='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/Home/rents/2011.txt ; vi ~/Documents/Personal/Home/rents/2011.txt'
