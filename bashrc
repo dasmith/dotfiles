@@ -50,6 +50,7 @@ if [ $THISHOST = "UTM" -o $THISHOST = "Turing" ]; then
   export FLEX_HOME=/usr/local/flex_sdk_4.6/
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
 else
+  export PATH=$PATH:/home/dustin/google_appengine/
   export PROMPT_COMMAND=$PROMPT_COMMAND"_host"
 fi
 
@@ -81,9 +82,11 @@ export PIP_RESPECT_VIRTUALENV=true
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export GAE_SDK_ROOT=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
-export PYTHONPATH=/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib/:/Users/dustin/Documents/Projects/event-ui/server/:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin:$GAE_SDK_ROOT:$GAE_SDK_ROOT/lib/
+export
+PYTHONPATH=/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib/:/Users/dustin/Documents/Projects/event-ui/server/:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin:$GAE_SDK_ROOT:$GAE_SDK_ROOT/lib/:/home/dustin/google_appengine/
+
 export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
 
-if [ $PLATFORM == "darwin" ]; then
+if [ $uname == "Darwin" ]; then
   launchctl setenv PYTHONPATH $PYTHONPATH
 fi
