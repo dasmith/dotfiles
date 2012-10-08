@@ -46,6 +46,8 @@ if [ $THISHOST = "UTM" -o $THISHOST = "Turing" ]; then
   export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
   #source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
   export PATH=/Developer/Tools/Panda3d/bin:/usr/local/bin/:$PATH:/Users/dustin/.vim/scmindent:$HOME/Library/Haskell/bin
+  export PATH=$PATH:/usr/local/flex_sdk_4.6/bin/
+  export FLEX_HOME=/usr/local/flex_sdk_4.6/
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
 else
   export PROMPT_COMMAND=$PROMPT_COMMAND"_host"
