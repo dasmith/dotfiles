@@ -68,8 +68,6 @@ if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
   #export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
   #export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
   #export PATH=$PATH:$EC2_HOME/bin
-elif [ $THISHOST = "intern04" ]; then
-  source ~/aliases.nokia
 fi
 
 # gem dir
@@ -78,11 +76,10 @@ export PATH=/usr/local/texlive/2011/bin/x86_64-darwin:$PATH:/usr/local/Cellar/ru
 # Load in .bashrc -------------------------------------------------
 source ~/.aliases   
 
-export PIP_RESPECT_VIRTUALENV=true
 # virtualenvwrapper
+export PIP_RESPECT_VIRTUALENV=true
 export WORKON_HOME=$HOME/.virtualenvs
 export GAE_SDK_ROOT=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
-export
 PYTHONPATH=/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib/:/Users/dustin/Documents/Projects/event-ui/server/:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin:$GAE_SDK_ROOT:$GAE_SDK_ROOT/lib/:/home/dustin/google_appengine/
 
 export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
