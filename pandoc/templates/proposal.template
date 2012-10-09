@@ -54,18 +54,6 @@
 \usepackage{pifont}
 \usepackage{mathrsfs}
 
-\newenvironment{indentpar}
-    {\list{}{
-             \setlength{\labelwidth}{0pt}
-             \setlength{\labelsep}{0pt}
-             \setlength{\itemindent}{\parindent}
-             \setlength{\listparindent}{\parindent}
-             \setlength{\parsep}{\parskip}
-             }
-             \item[]}
-    {\endlist}
-
-
 
 % for 'aside' environment
 \usepackage{float}
