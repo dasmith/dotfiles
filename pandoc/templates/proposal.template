@@ -92,7 +92,7 @@
 
 
 \newcommand{\bibhere}{\footnotesize\bibliographystyle{apalike}
-\bibliography{/bib/proposal}}
+\bibliography{/bib/papers,/bib/proposal}}
 %\setlength{\parindent}{0pt}
 
 \usepackage{setspace} % use \begin{spacing}{1.5}, or \onehalfspacing, etc
@@ -103,7 +103,12 @@
 \let\PBS=\PreserveBackslash
 \usepackage{enumerate}
 
-
+\newenvironment{indentpar}[1]%
+ {\begin{list}{}%
+         {\setlength{\leftmargin}{#1}}%
+         \item[]%
+ }
+ {\end{list}}
 
 
 \definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
