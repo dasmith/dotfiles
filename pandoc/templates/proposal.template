@@ -114,6 +114,7 @@
 
 \definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
 \newcommand{\user}[1]{\textcolor{usertextcolor}{\textsf{``#1''}}}
+\newcommand{\userp}[1]{\textcolor{usertextcolor}{\textsf{``#1}}.\textcolor{usertextcolor}{\textsf{''}}}
 %% code highlighting stuff
 \DefineShortVerb[commandchars=\\\{\}]{\|}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}

@@ -75,7 +75,6 @@ export PATH=/usr/local/texlive/2011/bin/x86_64-darwin:$PATH:/usr/local/Cellar/ru
 
 # Load in .bashrc -------------------------------------------------
 source ~/.aliases   
-
 # virtualenvwrapper
 export PIP_RESPECT_VIRTUALENV=true
 export WORKON_HOME=$HOME/.virtualenvs
