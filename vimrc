@@ -142,12 +142,16 @@ map <leader>ba :1,1000 bd!<cr>
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
-au BufRead,BufNewFile {COMMIT_EDITMSG}        set ft=gitcommit
-autocmd FileType html,text,pandoc,markdown set spell 
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+if has('autocmd')
+  au BufRead,BufNewFile {*.txt,*.md} set tw=100
+  au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
+  au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
+  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+  autocmd FileType html,text,pandoc,markdown set spell 
 
+  " show git diff in window split when committing
+  autocmd FileType gitcommit DiffGitCached | wincmd p
+  au BufRead,BufNewFile {COMMIT_EDITMSG}        set ft=gitcommit
 
 " auto executable commands for python
 "au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR>:!screen -AmdS ipython ipython:!screen -R ipython
@@ -156,12 +160,10 @@ au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 "au FileType qml map K :w<CR>:!screen -x prolog -X stuff $'\n\ncd %:p:h \n qmlviewer  %:t\n'<CR><CR>
 "au FileType prolog map K :w<CR>:!screen -x prolog -X stuff $'halt.\n\ncd %:p:h \n /usr/local/bin/yap \n [%:t:r].\n'<CR><CR>
 
+endif
 
 " select all text in buffer
 map <Leader>a ggVG
-
-" show git diff in window split when committing
-autocmd FileType gitcommit DiffGitCached | wincmd p
 
 " reselect visual block after indent
 vnoremap < <gv
