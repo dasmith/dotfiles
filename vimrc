@@ -89,14 +89,9 @@ Bundle "Soares/rainbow.vim.git"
 
 " Python
 Bundle "cburroughs/pep8.py"
+Bundle 'kevinw/pyflakes-vim.git'
 Bundle 'ivanov/vim-ipython.git'
 
-
-au FileType python map K :python run_this_file()<CR>
-au FileType python map <silent> <S-F5> :python run_this_line()<CR>
-au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
-au FileType python map <silent> <leader>d :py get_doc_buffer()<CR>
-au FileType python map <F6> :call <SID>toggle_send_on_save()<CR>
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -126,7 +121,8 @@ highlight SpellLocal term=underline cterm=underline
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 set spell spelllang=en_us
-
+set backupdir=./.backup,.,/tmp
+set directory=.,./.backup,/tmp
 
 nnoremap <silent> <LocalLeader>rs :source ~/.vimrc<CR>
 nnoremap <silent> <LocalLeader>rt :tabnew ~/.vim/vimrc<CR>
@@ -147,7 +143,14 @@ if has('autocmd')
   au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
   au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
   au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+  au FileType python map K :python run_this_file()<CR>
+  au FileType python map <silent> <S-F5> :python run_this_line()<CR>
+  au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
+  au FileType python map <silent> <leader>d :py get_doc_buffer()<CR>
+  au FileType python map <F6> :call <SID>toggle_send_on_save()<CR>
   autocmd FileType html,text,pandoc,markdown set spell 
+  " turn expandtab off for makefile
+  autocmd FileType make setlocal noexpandtab
 
   " show git diff in window split when committing
   autocmd FileType gitcommit DiffGitCached | wincmd p

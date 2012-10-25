@@ -114,7 +114,8 @@
 
 \definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
 \newcommand{\user}[1]{\textcolor{usertextcolor}{\textsf{``#1''}}}
-\newcommand{\userp}[1]{\textcolor{usertextcolor}{\textsf{``#1}}.\textcolor{usertextcolor}{\textsf{''}}}
+\newcommand{\usere}[2]{\textcolor{usertextcolor}{\textsf{``#1}}#2\textcolor{usertextcolor}{\textsf{''}}}
+
 %% code highlighting stuff
 \DefineShortVerb[commandchars=\\\{\}]{\|}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
@@ -201,15 +202,15 @@ Cambridge, MA 02139 USA\\
     \hfill MIT Media Lab \end{flushright}}
 \end{flushright}
 
-\vspace{0.3cm}
-{\bf Reader: }\rule[-0.1cm]{12.38cm}{0.01cm}
-\vspace{-0.5cm}
-\begin{flushright}
-\hfill\parbox[right]{6cm}
-    {\begin{flushright} \hfill Pattie Maes\newline
-    \hfill Professor of Media Art \& Sciences\\
-    \hfill MIT Media Lab \end{flushright}}
-\end{flushright}
+%\vspace{0.3cm}
+%{\bf Reader: }\rule[-0.1cm]{12.38cm}{0.01cm}
+%\vspace{-0.5cm}
+%\begin{flushright}
+%\hfill\parbox[right]{6cm}
+%    {\begin{flushright} \hfill Pattie Maes\newline
+%    \hfill Professor of Media Art \& Sciences\\
+%    \hfill MIT Media Lab \end{flushright}}
+%\end{flushright}
 
 
 \vspace{0.3cm}

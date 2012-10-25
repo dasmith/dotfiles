@@ -20,11 +20,11 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias nt='nosetests --rednose'
 #/opt/local/lib/postgresql83/bin/pg_ctl -D /usr/local/psql/data -l postgres.log start"'
 # Note, default OS is assumed to be OSX
-alias brutus='ssh dustin@brutus.csc.media.mit.edu' 
+# brutus
 alias xoth='ssh dustin@xoth.media.mit.edu' 
-alias achilles='ssh dustin@achilles.csc.media.mit.edu'
 alias yuggoth='ssh dustin@yuggoth.media.mit.edu'
 alias abbith='ssh dustin@abbith.media.mit.edu' 
+alias hisense='ssh dustin@hisense.media.mit.edu' 
 alias ml='ssh ml.media.mit.edu'
 alias athena='ssh dsmit@linux.mit.edu'
 alias as='sudo apt-cache search'
@@ -34,7 +34,7 @@ alias ag='sudo aptitude install'
 alias ipl='screen -R prolog'
 alias ipy='ipython notebook --pylab inline --profile default'
 # alias ipy='screen -AmdS ipython ipython ; screen -R ipython'
-alias ipyn='screen -AmdS ipython "ipython notebook --pylab inline" ; screen -R ipython'
+#alias ipyn='screen -AmdS ipython "ipython notebook --pylab inline" ; screen -R ipython'
 
 
 
@@ -58,10 +58,13 @@ fi
 # Shortcuts -------------------------------------------------------
 alias d='cd ~/Documents'
 alias proj='cd ~/Documents/Projects'
+alias es='cd ~/Documents/Projects/event-ui/server'
+alias nl='cd ~/Documents/Projects/event-ui/server/nlplanners'
 alias doc='cd ~/Documents'
 alias todo='vi ~/Desktop/TODO.md'
 alias class='cd /Users/dustin/Documents/Classes/'
-alias notes='cd ~/Dropbox/Notes/'
+alias notes='cd ~/Dropbox/Notes/' 
+alias bs='cd ~/Documents/Projects/beansprock/'
 
 # Personal tools --------------------------------------------------------
 alias rents='echo $(date "+%n%Y-%m-%d %H:%M:%S %n") >> ~/Documents/Personal/Home/rents/2011.txt ; vi ~/Documents/Personal/Home/rents/2011.txt'
