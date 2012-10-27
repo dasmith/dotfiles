@@ -99,8 +99,8 @@ Bundle 'sontek/rope-vim.git'
 Bundle 'ivanov/vim-ipython.git'
 " Python auto complete
 Bundle 'davidhalter/jedi-vim.git'
-let g:jedi#pydoc = "D"
-" shift+D shows the pydoc
+let g:jedi#pydoc = "U"
+" shift+U shows the pydoc
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
