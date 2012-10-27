@@ -44,14 +44,15 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
-Bundle 'spolu /dwm.vim.git'
+Bundle 'spolu/dwm.vim.git'
 
 " original repos on github
 Bundle "git.zip"
 Bundle 'tpope/vim-fugitive'
 
 Bundle 'vim-scripts/Color-Sampler-Pack.git'
-colorscheme peaksea
+colorscheme codeschool 
+" colorscheme peaksea
 "colorscheme railscasts2   
 
 " Show table of contents for 
@@ -65,15 +66,15 @@ let g:snipMateAllowMatchingDot = 0
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
 let NERDTreeWinSize=35
-let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
+let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
 nmap <leader>n :NERDTree<CR>
 
 Bundle "kien/ctrlp.vim.git"
 nmap <leader>t :CtrlP<CR>
 "runtime! plugin/ctrlp.vim
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc$',
-\ 'file': '\.pdf$\|\.swp$|\.gif$|\.jpeg$|\.jpg$|\.so$\|\.dat$'
+\ 'dir':  '^.swp$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$',
+\ 'file': '\.pdf$\|^\..+\.swp$|\.swp$|\.gif$|\.jpeg$|\.jpg$|\.so$\|\.dat$'
 \ }
 
 " Don't re-open buffers when it already exists
@@ -87,11 +88,19 @@ Bundle "Soares/rainbow.vim.git"
 
 "Bundle "chrismetcalf/vim-rainbow.git"
 
+" Tagbar
+Bundle "majutsushi/tagbar.git"
+map <leader>tb :TagbarToggle<cr>
+
 " Python
 Bundle "cburroughs/pep8.py"
 Bundle 'kevinw/pyflakes-vim.git'
+Bundle 'sontek/rope-vim.git'
 Bundle 'ivanov/vim-ipython.git'
-
+" Python auto complete
+Bundle 'davidhalter/jedi-vim.git'
+let g:jedi#pydoc = "D"
+" shift+D shows the pydoc
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -101,7 +110,7 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'vim-pandoc/vim-pandoc.git'
 let g:pandoc_bibfiles = ['/bib/papers.bib']
 let g:pandoc_use_bibtool = 1
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 
 " vim-scripts repos
 Bundle 'L9'
