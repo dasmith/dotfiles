@@ -16,8 +16,8 @@ ln -Fs ${D}/matplotlibrc ../.matplotlibrc
 ln -Fs ${D}/apple ../.osx
 ln -Fs ${D}ipython_config.py ../.ipython/profile_default/ipython_config.py
 rm -rf ../.vim/bundle/snipmate.vim/snippets
-mkdir ../.vim/colors/
-ln -Fs #{D}/colorscheme ../.vim/colors/codeschool.vim
+mkdir -p ../.vim/colors/
+ln -Fs ${D}/colorscheme ../.vim/colors/codeschool.vim
 ln -Fs ${D}/snippets ../.vim/bundle/snipmate.vim/snippets
 git clone -q https://github.com/milkbikis/powerline-bash
 cd powerline-bash; git pull; cd ..
