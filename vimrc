@@ -51,14 +51,13 @@ Bundle "git.zip"
 Bundle 'tpope/vim-fugitive'
 
 Bundle 'vim-scripts/Color-Sampler-Pack.git'
-colorscheme codeschool 
+color codeschool
 " colorscheme peaksea
-"colorscheme railscasts2   
+"colorscheme railscasts2
 
 " Show table of contents for 
 " Markdown documents in left pane
-Bundle "vim-scripts/VOoM.git"
-Bundle "ervandew/supertab.git"
+" Bundle "vim-scripts/VOoM.git"
 Bundle 'msanders/snipmate.vim.git'
 let g:snips_author = 'Dustin A Smith'
 let g:snipMateAllowMatchingDot = 0
@@ -93,28 +92,37 @@ Bundle "majutsushi/tagbar.git"
 map <leader>tb :TagbarToggle<cr>
 
 " Python
-Bundle "cburroughs/pep8.py"
-Bundle 'kevinw/pyflakes-vim.git'
-Bundle 'sontek/rope-vim.git'
+" Bundle "cburroughs/pep8.py"
+" Bundle 'kevinw/pyflakes-vim.git'
+"Bundle 'sontek/rope-vim.git'
 Bundle 'ivanov/vim-ipython.git'
 " Python auto complete
 Bundle 'davidhalter/jedi-vim.git'
+let g:jedi#auto_initialization = 0
 let g:jedi#pydoc = "U"
+let g:jedi#popup_on_dot = 0
+let g:jedi#related_names_command = "<leader>N"
+" let g:jedi#use_tabs_not_buffers = 0
+
+"
 " shift+U shows the pydoc
 
-Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
+
+Bundle "ervandew/supertab.git"
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
 
 " Pandoc
 Bundle 'vim-pandoc/vim-pandoc.git'
 let g:pandoc_bibfiles = ['/bib/papers.bib']
 let g:pandoc_use_bibtool = 1
-"let g:SuperTabDefaultCompletionType = "context"
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
 " non github repos
 let g:CommandTMatchWindowAtTop=1 " show window at top
 
@@ -151,6 +159,7 @@ if has('autocmd')
   au BufRead,BufNewFile {*.txt,*.md} set tw=100
   au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
   au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
+  au FileType python set omnifunc=jedi#complete
   au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
   au FileType python map K :python run_this_file()<CR>
   au FileType python map <silent> <S-F5> :python run_this_line()<CR>
