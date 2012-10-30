@@ -4,8 +4,9 @@ set cindent
 set tabstop=2
 set softtabstop=2
 set expandtab   "tabs as space
-set novisualbell " no blinking
-set noerrorbells " no sounds
+set noerrorbells visualbell t_vb=
+"set novisualbell " no blinking
+autocmd GUIEnter * set visualbell t_vb=
 set laststatus=2 " always show status
 set number " show ruler
 
@@ -97,15 +98,15 @@ map <leader>tb :TagbarToggle<cr>
 "Bundle 'sontek/rope-vim.git'
 Bundle 'ivanov/vim-ipython.git'
 " Python auto complete
-Bundle 'davidhalter/jedi-vim.git'
-let g:jedi#auto_initialization = 1
-let g:jedi#pydoc = "U"
+" Bundle 'davidhalter/jedi-vim.git'
+" let g:jedi#auto_initialization = 1
+" let g:jedi#pydoc = "U"
 " shift+U shows the pydoc
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_function_definition = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#show_function_definition = 0
 " disabling these two since it crashes on large files (like importing google.appengine.ext)
 "
-let g:jedi#related_names_command = "<leader>N"
+" let g:jedi#related_names_command = "<leader>N"
 " let g:jedi#use_tabs_not_buffers = 0
 
 
@@ -113,11 +114,18 @@ Bundle "Shougo/neocomplcache.git"
 let g:neocomplcache_enable_at_startup = 1
 if !exists('g:neocomplcache_omni_functions')
     let g:neocomplcache_omni_functions = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
     let g:neocomplcache_force_omni_patterns = {}
 endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+" let g:neocomplcache_force_overwrite_completefunc = 1
+" let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
+" let g:neocomplcache_omni_functions['python'] = 'jedi#complete'kk
+"if has('python/dyn') || has('python')
+"  let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+" endif
+" Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
 autocmd  FileType python let b:did_ftplugin = 1
-let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
 
 " Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -129,8 +137,12 @@ let g:pandoc_bibfiles = ['/bib/papers.bib']
 let g:pandoc_use_bibtool = 1
 
 " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'pythoncomplete'
+" until jedi is working
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"
 " non github repos
 let g:CommandTMatchWindowAtTop=1 " show window at top
 
@@ -168,8 +180,8 @@ if has('autocmd')
   au BufRead,BufNewFile {*.txt,*.md} set tw=100
   au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
   au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
-  au FileType python set omnifunc=jedi#complete
-  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 encoding=latin1 
+  " au FileType python set omnifunc=jedi#complete
+  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 
   au FileType python map K :python run_this_file()<CR>
   au FileType python map <silent> <S-F5> :python run_this_line()<CR>
   au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
