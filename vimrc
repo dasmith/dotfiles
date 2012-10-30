@@ -98,22 +98,30 @@ map <leader>tb :TagbarToggle<cr>
 Bundle 'ivanov/vim-ipython.git'
 " Python auto complete
 Bundle 'davidhalter/jedi-vim.git'
-let g:jedi#auto_initialization = 0
+let g:jedi#auto_initialization = 1
 let g:jedi#pydoc = "U"
+" shift+U shows the pydoc
 let g:jedi#popup_on_dot = 0
+let g:jedi#show_function_definition = 0
+" disabling these two since it crashes on large files (like importing google.appengine.ext)
+"
 let g:jedi#related_names_command = "<leader>N"
 " let g:jedi#use_tabs_not_buffers = 0
 
-"
-" shift+U shows the pydoc
+
+Bundle "Shougo/neocomplcache.git"
+let g:neocomplcache_enable_at_startup = 1
+if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+autocmd  FileType python let b:did_ftplugin = 1
+let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
 
 " Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
-
-Bundle "ervandew/supertab.git"
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
 
 " Pandoc
 Bundle 'vim-pandoc/vim-pandoc.git'
@@ -140,6 +148,7 @@ set backspace=indent,eol,start
 set spell spelllang=en_us
 set backupdir=./.backup,.,/tmp
 set directory=.,./.backup,/tmp
+set dir=~/.backup//
 
 nnoremap <silent> <LocalLeader>rs :source ~/.vimrc<CR>
 nnoremap <silent> <LocalLeader>rt :tabnew ~/.vim/vimrc<CR>
@@ -160,7 +169,7 @@ if has('autocmd')
   au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
   au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
   au FileType python set omnifunc=jedi#complete
-  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 encoding=latin1 
   au FileType python map K :python run_this_file()<CR>
   au FileType python map <silent> <S-F5> :python run_this_line()<CR>
   au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
