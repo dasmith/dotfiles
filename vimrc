@@ -93,17 +93,19 @@ Bundle "majutsushi/tagbar.git"
 map <leader>tb :TagbarToggle<cr>
 
 " Python
-" Bundle "cburroughs/pep8.py"
-" Bundle 'kevinw/pyflakes-vim.git'
+Bundle "cburroughs/pep8.py"
+Bundle 'kevinw/pyflakes-vim.git'
 "Bundle 'sontek/rope-vim.git'
 Bundle 'ivanov/vim-ipython.git'
 " Python auto complete
-" Bundle 'davidhalter/jedi-vim.git'
-" let g:jedi#auto_initialization = 1
-" let g:jedi#pydoc = "U"
+Bundle 'dasmith/jedi-vim.git'
+let g:jedi#auto_initialization = 1
+let g:jedi#pydoc = "U"
+let g:jedi#rename_command = "<leader>R"
+let g:jedi#popup_on_dot = 1
+let g:jedi#show_function_definition = 0
+autocmd FileType python let b:did_ftplugin = 1
 " shift+U shows the pydoc
-" let g:jedi#popup_on_dot = 0
-" let g:jedi#show_function_definition = 0
 " disabling these two since it crashes on large files (like importing google.appengine.ext)
 "
 " let g:jedi#related_names_command = "<leader>N"
@@ -118,12 +120,11 @@ endif
 if !exists('g:neocomplcache_force_omni_patterns')
     let g:neocomplcache_force_omni_patterns = {}
 endif
-" let g:neocomplcache_force_overwrite_completefunc = 1
-" let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
-" let g:neocomplcache_omni_functions['python'] = 'jedi#complete'kk
-"if has('python/dyn') || has('python')
-"  let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
-" endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
+if has('python/dyn') || has('python')
+ let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+endif
 " Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
 autocmd  FileType python let b:did_ftplugin = 1
 
@@ -139,9 +140,9 @@ let g:pandoc_use_bibtool = 1
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'pythoncomplete'
+" Bundle 'pythoncomplete'
 " until jedi is working
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "
 " non github repos
 let g:CommandTMatchWindowAtTop=1 " show window at top
