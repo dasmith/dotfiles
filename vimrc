@@ -96,37 +96,46 @@ map <leader>tb :TagbarToggle<cr>
 Bundle "cburroughs/pep8.py"
 Bundle 'kevinw/pyflakes-vim.git'
 "Bundle 'sontek/rope-vim.git'
-Bundle 'ivanov/vim-ipython.git'
-" Python auto complete
-Bundle 'dasmith/jedi-vim.git'
-let g:jedi#auto_initialization = 1
-let g:jedi#pydoc = "U"
-let g:jedi#rename_command = "<leader>R"
-let g:jedi#popup_on_dot = 1
-let g:jedi#show_function_definition = 0
-autocmd FileType python let b:did_ftplugin = 1
-" shift+U shows the pydoc
-" disabling these two since it crashes on large files (like importing google.appengine.ext)
-"
-" let g:jedi#related_names_command = "<leader>N"
-" let g:jedi#use_tabs_not_buffers = 0
 
-
-Bundle "Shougo/neocomplcache.git"
-let g:neocomplcache_enable_at_startup = 1
-if !exists('g:neocomplcache_omni_functions')
-    let g:neocomplcache_omni_functions = {}
-endif
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
+" Python-dependent plugins
 if has('python/dyn') || has('python')
- let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+        Bundle 'ivanov/vim-ipython.git'
+        " Python auto complete
+        Bundle 'dasmith/jedi-vim.git'
+        let g:jedi#auto_initialization = 1
+        let g:jedi#pydoc = "U"
+        let g:jedi#rename_command = "<leader>R"
+        let g:jedi#popup_on_dot = 1
+        let g:jedi#show_function_definition = 0
+        autocmd FileType python let b:did_ftplugin = 1
+        " shift+U shows the pydoc
+        " disabling these two since it crashes on large files (like importing google.appengine.ext)
+        "
+        " let g:jedi#related_names_command = "<leader>N"
+        let g:jedi#use_tabs_not_buffers = 0
+
+
+        Bundle "Shougo/neocomplcache.git"
+        let g:neocomplcache_enable_at_startup = 1
+        if !exists('g:neocomplcache_omni_functions')
+            let g:neocomplcache_omni_functions = {}
+        endif
+        if !exists('g:neocomplcache_force_omni_patterns')
+            let g:neocomplcache_force_omni_patterns = {}
+        endif
+        let g:neocomplcache_force_overwrite_completefunc = 1
+        let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
+         let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+        " Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
+        au FileType python set omnifunc=jedi#complete
+        au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 
+        au FileType python map K :python run_this_file()<CR>
+        au FileType python map <silent> <S-F5> :python run_this_line()<CR>
+        au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
+        au FileType python map <silent> <leader>d :py get_doc_buffer()<CR>
+        au FileType python map <F6> :call <SID>toggle_send_on_save()<CR>
+        au FileType python let b:did_ftplugin = 1
 endif
-" Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
-autocmd  FileType python let b:did_ftplugin = 1
 
 " Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -181,13 +190,6 @@ if has('autocmd')
   au BufRead,BufNewFile {*.txt,*.md} set tw=100
   au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
   au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
-  " au FileType python set omnifunc=jedi#complete
-  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 
-  au FileType python map K :python run_this_file()<CR>
-  au FileType python map <silent> <S-F5> :python run_this_line()<CR>
-  au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
-  au FileType python map <silent> <leader>d :py get_doc_buffer()<CR>
-  au FileType python map <F6> :call <SID>toggle_send_on_save()<CR>
   autocmd FileType html,text,pandoc,markdown set spell 
   " turn expandtab off for makefile
   autocmd FileType make setlocal noexpandtab
