@@ -20,6 +20,6 @@ mkdir -p ../.vim/colors/
 ln -Fs ${D}/colorscheme ../.vim/colors/codeschool.vim
 ln -Fs ${D}/snippets ../.vim/bundle/snipmate.vim/snippets
 git clone -q https://github.com/milkbikis/powerline-bash
+mkdir -p ../.backup
 cd powerline-bash; git pull; cd ..
 ln -Fs powerline-bash/powerline-bash.py powerline-bash.py
-

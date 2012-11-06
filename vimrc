@@ -70,12 +70,15 @@ let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', 
 nmap <leader>n :NERDTree<CR>
 
 Bundle "kien/ctrlp.vim.git"
+
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,.pyc
+
+" ctrlp
 nmap <leader>t :CtrlP<CR>
-"runtime! plugin/ctrlp.vim
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '^.swp$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$',
-\ 'file': '\.pdf$\|^\..+\.swp$|\.swp$|\.gif$|\.jpeg$|\.jpg$|\.so$\|\.dat$'
-\ }
+let g:ctrlp_custom_ignore = '\.pyc'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_mruf_last_entered = 1
+let g:ctrlp_dont_split = 'NERD_tree_2'
 
 " Don't re-open buffers when it already exists
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -95,7 +98,7 @@ map <leader>tb :TagbarToggle<cr>
 " Python
 Bundle "cburroughs/pep8.py"
 Bundle 'kevinw/pyflakes-vim.git'
-"Bundle 'sontek/rope-vim.git'
+Bundle 'sontek/rope-vim.git'
 
 " Python-dependent plugins
 if has('python/dyn') || has('python')
@@ -111,7 +114,7 @@ if has('python/dyn') || has('python')
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
         "
-        " let g:jedi#related_names_command = "<leader>N"
+        " let g:jedi#related_names_command = "<leader>C"
         let g:jedi#use_tabs_not_buffers = 0
 
 
@@ -149,10 +152,7 @@ let g:pandoc_use_bibtool = 1
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-" Bundle 'pythoncomplete'
-" until jedi is working
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"
+
 " non github repos
 let g:CommandTMatchWindowAtTop=1 " show window at top
 
@@ -190,7 +190,7 @@ if has('autocmd')
   au BufRead,BufNewFile {*.txt,*.md} set tw=100
   au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
   au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
-  autocmd FileType html,text,pandoc,markdown set spell 
+  autocmd FileType html,pandoc,markdown set spell 
   " turn expandtab off for makefile
   autocmd FileType make setlocal noexpandtab
 
