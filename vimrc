@@ -10,6 +10,8 @@ autocmd GUIEnter * set visualbell t_vb=
 set laststatus=2 " always show status
 set number " show ruler
 
+set background=dark
+
 " switch buffers without requiring saving
 set hidden
 
@@ -30,6 +32,10 @@ set wrap "Wrap lines
 " Scheme
 " Font
 set guifont=Meslo\ LG\ L\ DZ:h12
+
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,.pyc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 
 filetype off                  " required!
 filetype plugin indent on     " required!
@@ -65,20 +71,29 @@ let g:snipMateAllowMatchingDot = 0
 
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
-let NERDTreeWinSize=35
+let NERDTreeWinSize=30
+
+let NERDTreeShowBookmarks=1
 let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>n :NERDTree<CR>
+map <leader>e :NERDTreeFind<CR>
 
 Bundle "kien/ctrlp.vim.git"
 
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,.pyc
 
 " ctrlp
 nmap <leader>t :CtrlP<CR>
-let g:ctrlp_custom_ignore = '\.pyc'
+
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_mruf_last_entered = 1
 let g:ctrlp_dont_split = 'NERD_tree_2'
+let g:ctrlp_custom_ignore = '.pyc'
+
 
 " Don't re-open buffers when it already exists
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -113,13 +128,21 @@ if has('python/dyn') || has('python')
         autocmd FileType python let b:did_ftplugin = 1
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
-        "
-        " let g:jedi#related_names_command = "<leader>C"
-        let g:jedi#use_tabs_not_buffers = 0
+        let g:jedi#related_names_command = "<leader>S"
+        let g:jedi#use_tabs_not_buffers = 1
 
 
         Bundle "Shougo/neocomplcache.git"
         let g:neocomplcache_enable_at_startup = 1
+        let g:neocomplcache_enable_camel_case_completion = 1
+        let g:neocomplcache_enable_smart_case = 1
+        let g:neocomplcache_enable_underbar_completion = 1
+        let g:neocomplcache_min_syntax_length = 3
+        let g:neocomplcache_enable_auto_delimiter = 1
+        let g:neocomplcache_max_list = 15
+        let g:neocomplcache_auto_completion_start_length = 3
+        let g:neocomplcache_force_overwrite_completefunc = 1
+        let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
         if !exists('g:neocomplcache_omni_functions')
             let g:neocomplcache_omni_functions = {}
         endif
@@ -239,23 +262,52 @@ noremap L $
 " force saving on root
 cmap w!! %!sudo tee > /dev/null %
 
+noremap fc <Esc>:call CleanClose(1)
+noremap fq <Esc>:call CleanClose(0)
 
-" Delete buffer while keeping window layout (don't close buffer's windows).
-" Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
-if v:version < 700 || exists('loaded_bclose') || &cp
-finish
-endif
-let loaded_bclose = 1
-if !exists('bclose_multiple')
-let bclose_multiple = 1
+
+if has('gui_running')
+        set guioptions-=T " remove the toolbar
+        if has('gui_macvim')
+            set transparency=5 " Make the window slightly transparent
+        endif
+else
+        if &term == 'xterm' || &term == 'screen'
+            set t_Co=256 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+        endif
 endif
 
-" Display an error message.
-function! s:Warn(msg)
-echohl ErrorMsg
-echomsg a:msg
-echohl NONE
+
+function! NERDTreeInitAsNeeded()
+    redir => bufoutput
+    buffers!
+    redir END
+    let idx = stridx(bufoutput, "NERD_tree")
+    if idx > -1
+        NERDTreeMirror
+        NERDTreeFind
+        wincmd l
+    endif
 endfunction
 
-nnoremap <silent> <Leader>bd :Bclose<CR>
+function! CleanClose(tosave)
+if (a:tosave == 1)
+    w!
+endif
+let todelbufNr = bufnr("%")
+let newbufNr = bufnr("#")
+if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
+    exe "b".newbufNr
+else
+    bnext
+endif
+
+if (bufnr("%") == todelbufNr)
+    new
+endif
+exe "bd".todelbufNr
+call Buftabs_show()
+endfunction
+
+nnoremap <silent> <Leader>bd :call CleanClose(1)
 nnoremap <silent> <Leader>bD :Bclose!<CR>
