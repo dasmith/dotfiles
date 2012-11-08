@@ -72,11 +72,10 @@ let g:snipMateAllowMatchingDot = 0
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
 let NERDTreeWinSize=30
-
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
 let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
@@ -111,9 +110,11 @@ Bundle "majutsushi/tagbar.git"
 map <leader>tb :TagbarToggle<cr>
 
 " Python
-Bundle "cburroughs/pep8.py"
-Bundle 'kevinw/pyflakes-vim.git'
-Bundle 'sontek/rope-vim.git'
+
+" debugging tools
+" Bundle "cburroughs/pep8.py"
+" Bundle 'kevinw/pyflakes-vim.git'
+" Bundle 'sontek/rope-vim.git'
 
 " Python-dependent plugins
 if has('python/dyn') || has('python')
@@ -129,20 +130,20 @@ if has('python/dyn') || has('python')
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
         let g:jedi#related_names_command = "<leader>S"
-        let g:jedi#use_tabs_not_buffers = 1
+        let g:jedi#use_tabs_not_buffers = 0
 
 
         Bundle "Shougo/neocomplcache.git"
         let g:neocomplcache_enable_at_startup = 1
-        let g:neocomplcache_enable_camel_case_completion = 1
-        let g:neocomplcache_enable_smart_case = 1
-        let g:neocomplcache_enable_underbar_completion = 1
-        let g:neocomplcache_min_syntax_length = 3
-        let g:neocomplcache_enable_auto_delimiter = 1
+"        let g:neocomplcache_enable_camel_case_completion = 1
+"        let g:neocomplcache_enable_smart_case = 1
+"        let g:neocomplcache_enable_underbar_completion = 1
+"        let g:neocomplcache_min_syntax_length = 3
+"        let g:neocomplcache_enable_auto_delimiter = 1
         let g:neocomplcache_max_list = 15
         let g:neocomplcache_auto_completion_start_length = 3
-        let g:neocomplcache_force_overwrite_completefunc = 1
-        let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
+"        let g:neocomplcache_force_overwrite_completefunc = 1
+        "let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
         if !exists('g:neocomplcache_omni_functions')
             let g:neocomplcache_omni_functions = {}
         endif
@@ -154,7 +155,6 @@ if has('python/dyn') || has('python')
          let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
         " Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
         au FileType python set omnifunc=jedi#complete
-        au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 
         au FileType python map K :python run_this_file()<CR>
         au FileType python map <silent> <S-F5> :python run_this_line()<CR>
         au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
@@ -216,6 +216,7 @@ if has('autocmd')
   autocmd FileType html,pandoc,markdown set spell 
   " turn expandtab off for makefile
   autocmd FileType make setlocal noexpandtab
+  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 
 
   " show git diff in window split when committing
   autocmd FileType gitcommit DiffGitCached | wincmd p
