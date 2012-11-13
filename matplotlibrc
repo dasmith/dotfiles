@@ -25,7 +25,7 @@
 
 #### CONFIGURATION BEGINS HERE
 backend      : GTKAgg # the default backend
-numerix      : numarray   # Numeric or numarray
+#numerix      : numarray   # Numeric or numarray
 interactive  : False     # see http://matplotlib.sourceforge.net/interactive.html
 toolbar      : toolbar2   # None | classic | toolbar2
 
@@ -44,11 +44,11 @@ lines.linestyle   : -       # solid line
 lines.color       : b       # blue
 lines.marker      : None    # the default marker
 lines.markerfacecolor  : b       # blue
-lines.markeredgecolor  : k       # black
+#lines.markeredgecolor  : k       # black
 lines.markeredgewidth  : 0.5     # the line width around the marker symbol
 lines.markersize  : 6            # markersize, in points
 lines.antialiased : True         # render lines in antialised (no jaggies)
-lines.data_clipping : False      # Use data clipping in addition to viewport
+#lines.data_clipping : False      # Use data clipping in addition to viewport
                                  # clipping.  Useful if you plot long data
                                  # sets with only a fraction in the viewport
 
@@ -120,7 +120,7 @@ font.monospace      : Andale Mono, Bitstream Vera Sans Mono, Nimbus Mono L, Cour
 # information on text properties
 text.usetex         : True
 text.color          : k       # black
-text.fontsize       : 12
+#text.fontsize       : 12
 
 legend.fontsize     : 10
 ### AXES
@@ -136,10 +136,10 @@ axes.labelsize      : 12      # fontsize of the x any y labels
 axes.labelcolor     : k       # black 
 
 ### TICKS
-tick.major.size     : 4      # major tick size in points
-tick.minor.size     : 2      # minor tick size in points
-tick.major.pad      : 4      # distance to major tick label in points
-tick.minor.pad      : 4      # distance to the minor tick label in points
+#tick.major.size     : 4      # major tick size in points
+#tick.minor.size     : 2      # minor tick size in points
+#tick.major.pad      : 4      # distance to major tick label in points
+#tick.minor.pad      : 4      # distance to the minor tick label in points
 tick.color          : k      # color of the tick labels 
 tick.labelsize      : 10     # fontsize of the tick labels
 

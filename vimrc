@@ -112,37 +112,41 @@ map <leader>tb :TagbarToggle<cr>
 " Python
 
 " debugging tools
-" Bundle "cburroughs/pep8.py"
-" Bundle 'kevinw/pyflakes-vim.git'
+Bundle "cburroughs/pep8.py"
+Bundle 'kevinw/pyflakes-vim.git'
 " Bundle 'sontek/rope-vim.git'
 
 " Python-dependent plugins
 if has('python/dyn') || has('python')
         Bundle 'ivanov/vim-ipython.git'
+        Bundle "mjbrownie/pythoncomplete.vim"
         " Python auto complete
-        Bundle 'dasmith/jedi-vim.git'
-        let g:jedi#auto_initialization = 1
-        let g:jedi#pydoc = "U"
-        let g:jedi#rename_command = "<leader>R"
-        let g:jedi#popup_on_dot = 1
-        let g:jedi#show_function_definition = 0
-        autocmd FileType python let b:did_ftplugin = 1
+        " Bundle 'dasmith/jedi-vim.git'
+        " let g:jedi#auto_initialization = 0
+        " let g:jedi#pydoc = "U"
+        " let g:jedi#rename_command = "<leader>R"
+        " let g:jedi#popup_on_dot = 1
+        " let g:jedi#show_function_definition = 0
+        " autocmd FileType python let b:did_ftplugin = 1
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
-        let g:jedi#related_names_command = "<leader>S"
-        let g:jedi#use_tabs_not_buffers = 0
+        " let g:jedi#related_names_command = "<leader>S"
+        "let g:jedi#use_tabs_not_buffers = 0
 
+        if has('shit') 
 
-        Bundle "Shougo/neocomplcache.git"
-        let g:neocomplcache_enable_at_startup = 1
-"        let g:neocomplcache_enable_camel_case_completion = 1
-"        let g:neocomplcache_enable_smart_case = 1
-"        let g:neocomplcache_enable_underbar_completion = 1
-"        let g:neocomplcache_min_syntax_length = 3
-"        let g:neocomplcache_enable_auto_delimiter = 1
+        " Bundle "Shougo/neocomplcache.git"
+        " Disable autocomplpop
+        " let g:acp_enableAtStartup = 0
+        " let g:neocomplcache_enable_at_startup = 1
+        let g:neocomplcache_enable_camel_case_completion = 1
+        let g:neocomplcache_enable_smart_case = 1
+        let g:neocomplcache_enable_underbar_completion = 1
+        let g:neocomplcache_min_syntax_length = 3
+        let g:neocomplcache_enable_auto_delimiter = 1
         let g:neocomplcache_max_list = 15
         let g:neocomplcache_auto_completion_start_length = 3
-"        let g:neocomplcache_force_overwrite_completefunc = 1
+        let g:neocomplcache_force_overwrite_completefunc = 1
         "let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
         if !exists('g:neocomplcache_omni_functions')
             let g:neocomplcache_omni_functions = {}
@@ -152,9 +156,11 @@ if has('python/dyn') || has('python')
         endif
         let g:neocomplcache_force_overwrite_completefunc = 1
         let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
-         let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+        " let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+        let g:neocomplcache_omni_functions['python'] = 'pythoncomplete#Complete'
+      endif
         " Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
-        au FileType python set omnifunc=jedi#complete
+        au FileType python set omnifunc=pythoncomplete#Complete
         au FileType python map K :python run_this_file()<CR>
         au FileType python map <silent> <S-F5> :python run_this_line()<CR>
         au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
