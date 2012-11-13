@@ -99,6 +99,7 @@
 \usepackage{setspace} % use \begin{spacing}{1.5}, or \onehalfspacing, etc
 \usepackage{enumerate}
 \usepackage{array}
+\usepackage{ascii}
 % This is needed because raggedright in table elements redefines \\:
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \let\PBS=\PreserveBackslash
@@ -111,6 +112,10 @@
  }
  {\end{list}}
 
+
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.5pt] (char) {#1};}}
 
 \definecolor{usertextcolor}{rgb}{0.18, 0.55, 0.34}
 \newcommand{\user}[1]{\textcolor{usertextcolor}{\textsf{``#1''}}}
