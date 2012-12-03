@@ -69,6 +69,11 @@ Bundle 'msanders/snipmate.vim.git'
 let g:snips_author = 'Dustin A Smith'
 let g:snipMateAllowMatchingDot = 0
 
+Bundle 'ervandew/supertab.git'
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
+
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
 let NERDTreeWinSize=30
@@ -114,26 +119,27 @@ map <leader>tb :TagbarToggle<cr>
 " debugging tools
 Bundle "cburroughs/pep8.py"
 Bundle 'kevinw/pyflakes-vim.git'
-" Bundle 'sontek/rope-vim.git'
+" Bundle 'sontek/rope-vim.git'  # slow
 
 " Python-dependent plugins
 if has('python/dyn') || has('python')
         Bundle 'ivanov/vim-ipython.git'
         Bundle "mjbrownie/pythoncomplete.vim"
         " Python auto complete
+        Bundle 'davidhalter/jedi-vim.git'
         " Bundle 'dasmith/jedi-vim.git'
         " let g:jedi#auto_initialization = 0
-        " let g:jedi#pydoc = "U"
-        " let g:jedi#rename_command = "<leader>R"
-        " let g:jedi#popup_on_dot = 1
-        " let g:jedi#show_function_definition = 0
+        let g:jedi#pydoc = "U"
+        let g:jedi#rename_command = "<leader>R"
+        let g:jedi#popup_on_dot = 1
+        let g:jedi#show_function_definition = 0
         " autocmd FileType python let b:did_ftplugin = 1
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
         " let g:jedi#related_names_command = "<leader>S"
         "let g:jedi#use_tabs_not_buffers = 0
 
-        if has('shit') 
+     if has('shit') 
 
         " Bundle "Shougo/neocomplcache.git"
         " Disable autocomplpop
@@ -157,9 +163,11 @@ if has('python/dyn') || has('python')
         let g:neocomplcache_force_overwrite_completefunc = 1
         let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
         " let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
-        let g:neocomplcache_omni_functions['python'] = 'pythoncomplete#Complete'
+        "let g:neocomplcache_omni_functions['python'] = 'pythoncomplete#Complete'
       endif
         " Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
+        filetype plugin on
+        set ofu=syntaxcomplete#Complete
         au FileType python set omnifunc=pythoncomplete#Complete
         au FileType python map K :python run_this_file()<CR>
         au FileType python map <silent> <S-F5> :python run_this_line()<CR>
@@ -173,10 +181,10 @@ endif
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
 
-" Pandoc
-Bundle 'vim-pandoc/vim-pandoc.git'
-let g:pandoc_bibfiles = ['/bib/papers.bib']
-let g:pandoc_use_bibtool = 1
+" Pandoc -- too slow to be usable
+" Bundle 'vim-pandoc/vim-pandoc.git'
+" let g:pandoc_bibfiles = ['/bib/papers.bib']
+" let g:pandoc_use_bibtool = 1
 
 " vim-scripts repos
 Bundle 'L9'
