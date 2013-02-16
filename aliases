@@ -5,6 +5,8 @@ PANDA_VERSION=1.7
 PANDA_PATH=/Developer/Panda3d/lib
 PATH=/usr/local/git/bin/:~/dotfiles/bin/:/Applications/MATLAB_R2008a/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/opt/local/lib/mysql5/bin:/opt/local/lib/postgresql84/bin/:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:~/.local/bin/:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/Developer/Tools/Panda3d:/opt/local/include/:/opt/local/lib/:$PATH:/usr/local/mysql/bin
 
+
+alias thesis='cd ~/Dropbox/Thesis'
 # Setting PATH for EPD-7.1-2
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
@@ -37,10 +39,6 @@ alias ipy='ipython notebook --pylab inline --profile default'
 # alias ipy='screen -AmdS ipython ipython ; screen -R ipython'
 #alias ipyn='screen -AmdS ipython "ipython notebook --pylab inline" ; screen -R ipython'
 
-
-
-alias qmake=/home/dussmith/QtSDK/Desktop/Qt/473/gcc/bin/qmake
-alias espresso='~/py-dustin/habitphone/Espresso/bin/espresso.js'
 
 # Navigation ------------------------------------------------------
 alias gen='cd ~/Documents/Notes/generals/; mvim *.md header.txt Makefile'

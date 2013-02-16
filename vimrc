@@ -114,19 +114,23 @@ map <leader>tb :TagbarToggle<cr>
 " debugging tools
 Bundle "cburroughs/pep8.py"
 Bundle 'kevinw/pyflakes-vim.git'
-" Bundle 'sontek/rope-vim.git'
+Bundle 'sontek/rope-vim.git'
 
 " Python-dependent plugins
 if has('python/dyn') || has('python')
+
         Bundle 'ivanov/vim-ipython.git'
-        Bundle "mjbrownie/pythoncomplete.vim"
+        " Bundle "mjbrownie/pythoncomplete.vim"
+        Bundle 'ervandew/supertab'
+        let g:SuperTabMappingForward = '<tab>'
+
         " Python auto complete
-        " Bundle 'dasmith/jedi-vim.git'
+        "Bundle 'davidhalter/jedi-vim.git'
         " let g:jedi#auto_initialization = 0
         " let g:jedi#pydoc = "U"
-        " let g:jedi#rename_command = "<leader>R"
-        " let g:jedi#popup_on_dot = 1
-        " let g:jedi#show_function_definition = 0
+        "let g:jedi#rename_command = "<leader>R"
+        "let g:jedi#popup_on_dot = 1
+        "let g:jedi#show_function_definition = 0
         " autocmd FileType python let b:did_ftplugin = 1
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
@@ -158,9 +162,9 @@ if has('python/dyn') || has('python')
         let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
         " let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
         let g:neocomplcache_omni_functions['python'] = 'pythoncomplete#Complete'
+        au FileType python set omnifunc=pythoncomplete#Complete
       endif
         " Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
-        au FileType python set omnifunc=pythoncomplete#Complete
         au FileType python map K :python run_this_file()<CR>
         au FileType python map <silent> <S-F5> :python run_this_line()<CR>
         au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
