@@ -50,8 +50,11 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-
 Bundle 'spolu/dwm.vim.git'
+
+
+" html  & javascript support
+Bundle "xenoterracide/html.vim"
 
 " original repos on github
 Bundle "git.zip"
@@ -59,7 +62,7 @@ Bundle 'tpope/vim-fugitive'
 
 Bundle 'vim-scripts/Color-Sampler-Pack.git'
 color codeschool
-" colorscheme peaksea
+"colorscheme peaksea
 "colorscheme railscasts2
 
 " Show table of contents for 
@@ -76,19 +79,34 @@ set completeopt=menuone,longest,preview
 
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
-let NERDTreeWinSize=30
-let NERDTreeShowBookmarks=1
+let NERDTreeWinSize=25
 let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=0
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
+"let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>n :NERDTree<CR>
 map <leader>e :NERDTreeFind<CR>
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
+
+autocmd VimEnter * NERDTree     "run nerdtree
+autocmd VimEnter * wincmd p     "cursor to right
+
 
 Bundle "kien/ctrlp.vim.git"
+
+"scheme
+Bundle "vim-scripts/slimv.vim"
+let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load /Applications/MacVim.app/Contents/Resources/vim/runtime/slime/start-swank.lisp\""' 
 
 
 " ctrlp
@@ -124,57 +142,29 @@ Bundle 'kevinw/pyflakes-vim.git'
 " Python-dependent plugins
 if has('python/dyn') || has('python')
         Bundle 'ivanov/vim-ipython.git'
-        Bundle "mjbrownie/pythoncomplete.vim"
+        "Bundle "mjbrownie/pythoncomplete.vim"
         " Python auto complete
         Bundle 'davidhalter/jedi-vim.git'
         " Bundle 'dasmith/jedi-vim.git'
-        " let g:jedi#auto_initialization = 0
+        let g:jedi#auto_initialization = 0
         let g:jedi#pydoc = "U"
-        let g:jedi#rename_command = "<leader>R"
+        "let g:jedi#rename_command = "<leader>R"
         let g:jedi#popup_on_dot = 1
         let g:jedi#show_function_definition = 0
         " autocmd FileType python let b:did_ftplugin = 1
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
-        " let g:jedi#related_names_command = "<leader>S"
-        "let g:jedi#use_tabs_not_buffers = 0
+        "let g:jedi#related_names_command = "<leader>S"
+        let g:jedi#use_tabs_not_buffers = 0
 
-     if has('shit') 
-
-        " Bundle "Shougo/neocomplcache.git"
-        " Disable autocomplpop
-        " let g:acp_enableAtStartup = 0
-        " let g:neocomplcache_enable_at_startup = 1
-        let g:neocomplcache_enable_camel_case_completion = 1
-        let g:neocomplcache_enable_smart_case = 1
-        let g:neocomplcache_enable_underbar_completion = 1
-        let g:neocomplcache_min_syntax_length = 3
-        let g:neocomplcache_enable_auto_delimiter = 1
-        let g:neocomplcache_max_list = 15
-        let g:neocomplcache_auto_completion_start_length = 3
-        let g:neocomplcache_force_overwrite_completefunc = 1
-        "let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
-        if !exists('g:neocomplcache_omni_functions')
-            let g:neocomplcache_omni_functions = {}
-        endif
-        if !exists('g:neocomplcache_force_omni_patterns')
-            let g:neocomplcache_force_omni_patterns = {}
-        endif
-        let g:neocomplcache_force_overwrite_completefunc = 1
-        let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
-        " let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
-        "let g:neocomplcache_omni_functions['python'] = 'pythoncomplete#Complete'
-      endif
-        " Some ideas can be found here: https://github.com/NagatoPain/dotfiles/blob/master/.vim/vimrc
         filetype plugin on
-        set ofu=syntaxcomplete#Complete
-        au FileType python set omnifunc=pythoncomplete#Complete
         au FileType python map K :python run_this_file()<CR>
         au FileType python map <silent> <S-F5> :python run_this_line()<CR>
         au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
         au FileType python map <silent> <leader>d :py get_doc_buffer()<CR>
         au FileType python map <F6> :call <SID>toggle_send_on_save()<CR>
         au FileType python let b:did_ftplugin = 1
+        map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 endif
 
 " Bundle 'Lokaltog/vim-easymotion'
@@ -237,7 +227,8 @@ if has('autocmd')
   au BufRead,BufNewFile {COMMIT_EDITMSG}        set ft=gitcommit
 
 " auto executable commands for python
-"au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR>:!screen -AmdS ipython ipython:!screen -R ipython
+" au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR>:!screen -AmdS ipython ipython:!screen -R ipython
+au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\%load_ext autoreload\n\%autoreload 2\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
 
 " auto execute commands for prolog
 "au FileType qml map K :w<CR>:!screen -x prolog -X stuff $'\n\ncd %:p:h \n qmlviewer  %:t\n'<CR><CR>
@@ -293,17 +284,6 @@ else
 endif
 
 
-function! NERDTreeInitAsNeeded()
-    redir => bufoutput
-    buffers!
-    redir END
-    let idx = stridx(bufoutput, "NERD_tree")
-    if idx > -1
-        NERDTreeMirror
-        NERDTreeFind
-        wincmd l
-    endif
-endfunction
 
 function! CleanClose(tosave)
 if (a:tosave == 1)
@@ -323,6 +303,7 @@ endif
 exe "bd".todelbufNr
 call Buftabs_show()
 endfunction
+
 
 nnoremap <silent> <Leader>bd :call CleanClose(1)
 nnoremap <silent> <Leader>bD :Bclose!<CR>

@@ -88,3 +88,5 @@ if [ $uname == "Darwin" ]; then
   launchctl setenv PYTHONPATH $PYTHONPATH
 fi
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

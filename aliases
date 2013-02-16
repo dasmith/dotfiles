@@ -31,12 +31,15 @@ alias athena='ssh dsmit@linux.mit.edu'
 alias as='sudo apt-cache search'
 alias ag='sudo aptitude install'
 
+alias trade="cd ~/Dropbox/trade/"
+alias aaai='cd /Users/dustin/Dropbox/AAAI-2013'
 # Development
 alias ipl='screen -R prolog'
 alias ipy='ipython notebook --pylab inline --profile default'
-# alias ipy='screen -AmdS ipython ipython ; screen -R ipython'
+alias ipy2='screen -AmdS ipython ipython ; screen -R ipython'
 #alias ipyn='screen -AmdS ipython "ipython notebook --pylab inline" ; screen -R ipython'
 
+alias emacs="/usr/local/Cellar/emacs/24.2/Emacs.app/Contents/MacOS/Emacs" 
 
 
 alias qmake=/home/dussmith/QtSDK/Desktop/Qt/473/gcc/bin/qmake
