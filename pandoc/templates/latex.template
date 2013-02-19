@@ -1,5 +1,6 @@
 \documentclass$if(fontsize)$[$fontsize$]$endif${article}
 \usepackage{amssymb,amsmath}
+\usepackage{ascii}
 $if(xetex)$
 \usepackage{ifxetex}
 \ifxetex

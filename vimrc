@@ -141,8 +141,12 @@ Bundle 'kevinw/pyflakes-vim.git'
 
 " Python-dependent plugins
 if has('python/dyn') || has('python')
+
         Bundle 'ivanov/vim-ipython.git'
-        "Bundle "mjbrownie/pythoncomplete.vim"
+        " Bundle "mjbrownie/pythoncomplete.vim"
+        Bundle 'ervandew/supertab'
+        let g:SuperTabMappingForward = '<tab>'
+
         " Python auto complete
         Bundle 'davidhalter/jedi-vim.git'
         " Bundle 'dasmith/jedi-vim.git'

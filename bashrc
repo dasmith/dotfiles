@@ -79,8 +79,6 @@ source ~/.aliases
 # virtualenvwrapper
 export PIP_RESPECT_VIRTUALENV=true
 export WORKON_HOME=$HOME/.virtualenvs
-export GAE_SDK_ROOT=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
-export PYTHONPATH=/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm/:Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib/:/Users/dustin/Documents/Projects/event-ui/server/:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin:$GAE_SDK_ROOT:$GAE_SDK_ROOT/lib/:/home/dustin/google_appengine/
 
 export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
 
@@ -88,5 +86,8 @@ if [ $uname == "Darwin" ]; then
   launchctl setenv PYTHONPATH $PYTHONPATH
 fi
 
+export PYTHONPATH=/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm/:Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib/:/Users/dustin/Documents/Projects/event-ui/server/:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin:/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/:/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine//lib/:/home/dustin/google_appengine/:/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm
+
+export PATH=/Volumes/Tape/QT5/5.0.0-rc1/clang_64/bin/:/usr/local/bin/:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
