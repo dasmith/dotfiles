@@ -35,6 +35,7 @@ alias trade="cd ~/Dropbox/trade/"
 alias aaai='cd /Users/dustin/Dropbox/AAAI-2013'
 # Development
 alias ipl='screen -R prolog'
+alias isc='screen -R scheme'
 alias ipy='ipython notebook --pylab inline --profile default'
 alias ipy2='screen -AmdS ipython ipython ; screen -R ipython'
 #alias ipyn='screen -AmdS ipython "ipython notebook --pylab inline" ; screen -R ipython'

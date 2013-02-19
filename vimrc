@@ -230,11 +230,13 @@ if has('autocmd')
 " au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR>:!screen -AmdS ipython ipython:!screen -R ipython
 au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\%load_ext autoreload\n\%autoreload 2\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
 
+au FileType scheme map K :w<CR>:!screen -x scheme -X stuff $'\n\ncd %:p:h \n rlwrap scheme %:t\n'<CR><CR>
 " auto execute commands for prolog
 "au FileType qml map K :w<CR>:!screen -x prolog -X stuff $'\n\ncd %:p:h \n qmlviewer  %:t\n'<CR><CR>
 "au FileType prolog map K :w<CR>:!screen -x prolog -X stuff $'halt.\n\ncd %:p:h \n /usr/local/bin/yap \n [%:t:r].\n'<CR><CR>
 
 endif
+
 
 " select all text in buffer
 map <Leader>a ggVG
