@@ -65,6 +65,7 @@ color codeschool
 "colorscheme peaksea
 "colorscheme railscasts2
 
+
 " Show table of contents for 
 " Markdown documents in left pane
 " Bundle "vim-scripts/VOoM.git"
@@ -76,12 +77,10 @@ Bundle 'ervandew/supertab.git'
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
 let NERDTreeWinSize=25
 let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
-"let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>n :NERDTree<CR>
 map <leader>e :NERDTreeFind<CR>
@@ -102,19 +101,19 @@ autocmd VimEnter * NERDTree     "run nerdtree
 autocmd VimEnter * wincmd p     "cursor to right
 
 
-Bundle "kien/ctrlp.vim.git"
-
-"scheme
-Bundle "vim-scripts/slimv.vim"
-let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load /Applications/MacVim.app/Contents/Resources/vim/runtime/slime/start-swank.lisp\""' 
-
-
 " ctrlp
+Bundle "kien/ctrlp.vim.git"
 nmap <leader>t :CtrlP<CR>
+nmap ; :CtrlPBuffer<CR>  " buffer search
+
 
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dont_split = 'NERD_tree_2'
-let g:ctrlp_custom_ignore = '.pyc'
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
 
 
 " Don't re-open buffers when it already exists
@@ -126,14 +125,11 @@ Bundle "cucumber.zip"
 " Bundle "Markdown"
 Bundle "Soares/rainbow.vim.git"
 
-"Bundle "chrismetcalf/vim-rainbow.git"
-
 " Tagbar
 Bundle "majutsushi/tagbar.git"
 map <leader>tb :TagbarToggle<cr>
 
 " Python
-
 " debugging tools
 Bundle "cburroughs/pep8.py"
 Bundle 'kevinw/pyflakes-vim.git'
@@ -149,8 +145,7 @@ if has('python/dyn') || has('python')
 
         " Python auto complete
         Bundle 'davidhalter/jedi-vim.git'
-        " Bundle 'dasmith/jedi-vim.git'
-        let g:jedi#auto_initialization = 0
+        let g:jedi#auto_initialization = 1
         let g:jedi#pydoc = "U"
         "let g:jedi#rename_command = "<leader>R"
         let g:jedi#popup_on_dot = 1
@@ -158,7 +153,7 @@ if has('python/dyn') || has('python')
         " autocmd FileType python let b:did_ftplugin = 1
         " shift+U shows the pydoc
         " disabling these two since it crashes on large files (like importing google.appengine.ext)
-        "let g:jedi#related_names_command = "<leader>S"
+        let g:jedi#related_names_command = "<leader>S"
         let g:jedi#use_tabs_not_buffers = 0
 
         filetype plugin on
@@ -186,6 +181,14 @@ Bundle 'FuzzyFinder'
 
 " non github repos
 let g:CommandTMatchWindowAtTop=1 " show window at top
+
+" Powerline
+" Bundle "Lokaltog/powerline.git"
+Bundle "Lokaltog/vim-powerline.git"
+let g:Powerline_symbols = 'fancy'
+
+" Color editor for vim
+Bundle "Rykka/colorv.vim"
 
 
 highlight clear SpellBad
@@ -234,7 +237,8 @@ if has('autocmd')
 " au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR>:!screen -AmdS ipython ipython:!screen -R ipython
 au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\%load_ext autoreload\n\%autoreload 2\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
 
-au FileType scheme map K :w<CR>:!screen -x scheme -X stuff $'\n\ncd %:p:h \n rlwrap scheme %:t\n'<CR><CR>
+au FileType scheme map K :w<CR>:!screen -x scheme -X stuff $'\n\ncd %:p:h \n rlwrap scheme --load %:t\n'<CR><CR>
+au FileType scheme map Q :w<CR>:!screen -x scheme -X stuff $'\n<C-D>\n'<CR><CR>
 " auto execute commands for prolog
 "au FileType qml map K :w<CR>:!screen -x prolog -X stuff $'\n\ncd %:p:h \n qmlviewer  %:t\n'<CR><CR>
 "au FileType prolog map K :w<CR>:!screen -x prolog -X stuff $'halt.\n\ncd %:p:h \n /usr/local/bin/yap \n [%:t:r].\n'<CR><CR>
@@ -257,6 +261,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" previous buffer
+noremap <C-e> :e#<CR>
 
 " use arrow keys to change buffer
 noremap <left> :bp<CR>
