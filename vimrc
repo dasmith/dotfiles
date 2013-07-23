@@ -52,6 +52,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'spolu/dwm.vim.git'
 
+" LaTeX
+Bundle "jcf/vim-latex"
 
 " html  & javascript support
 Bundle "xenoterracide/html.vim"
