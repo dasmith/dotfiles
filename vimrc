@@ -71,13 +71,10 @@ color codeschool
 " Show table of contents for 
 " Markdown documents in left pane
 " Bundle "vim-scripts/VOoM.git"
-Bundle 'msanders/snipmate.vim.git'
-let g:snips_author = 'Dustin A Smith'
-let g:snipMateAllowMatchingDot = 0
 
-Bundle 'ervandew/supertab.git'
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+"Bundle 'ervandew/supertab.git'
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,longest,preview
 
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
@@ -98,7 +95,6 @@ function! s:CloseIfOnlyNerdTreeLeft()
     endif
   endif
 endfunction
-
 autocmd VimEnter * NERDTree     "run nerdtree
 autocmd VimEnter * wincmd p     "cursor to right
 
@@ -107,7 +103,6 @@ autocmd VimEnter * wincmd p     "cursor to right
 Bundle "kien/ctrlp.vim.git"
 nmap <leader>t :CtrlP<CR>
 nmap ; :CtrlPBuffer<CR>  " buffer search
-
 
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dont_split = 'NERD_tree_2'
@@ -140,10 +135,15 @@ Bundle 'kevinw/pyflakes-vim.git'
 " Python-dependent plugins
 if has('python/dyn') || has('python')
 
+        filetype plugin on
         Bundle 'ivanov/vim-ipython.git'
         " Bundle "mjbrownie/pythoncomplete.vim"
         Bundle 'ervandew/supertab'
         let g:SuperTabMappingForward = '<tab>'
+
+        Bundle 'msanders/snipmate.vim.git'
+        let g:snips_author = 'Dustin A Smith'
+        let g:snipMateAllowMatchingDot = 0
 
         " Python auto complete
         Bundle 'davidhalter/jedi-vim.git'
@@ -158,7 +158,6 @@ if has('python/dyn') || has('python')
         let g:jedi#related_names_command = "<leader>S"
         let g:jedi#use_tabs_not_buffers = 0
 
-        filetype plugin on
         au FileType python map K :python run_this_file()<CR>
         au FileType python map <silent> <S-F5> :python run_this_line()<CR>
         au FileType python vmap <silent> <F5> :python run_these_lines()<CR>
@@ -225,8 +224,9 @@ map 0 ^
 if has('autocmd')
   au BufRead,BufNewFile {*.txt,*.md} set tw=100
   au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru} set ft=ruby
-  au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=pandoc
-  autocmd FileType html,pandoc,markdown set spell 
+  au BufRead,BufNewFile {*.md,*.Pmd,*.mkd,*.markdown} set ft=pandoc
+  au BufRead,BufNewFile {*.tex} set ft=latex
+  autocmd FileType html,pandoc,latex,markdown set spell 
   " turn expandtab off for makefile
   autocmd FileType make setlocal noexpandtab
   au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 
@@ -240,13 +240,13 @@ if has('autocmd')
 au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\%load_ext autoreload\n\%autoreload 2\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
 
 au FileType scheme map K :w<CR>:!screen -x scheme -X stuff $'\n\ncd %:p:h \n rlwrap scheme --load %:t\n'<CR><CR>
+au FileType scheme map C :w<CR>:!screen -x scheme -X stuff $'\n !R \n'<CR><CR>
 au FileType scheme map Q :w<CR>:!screen -x scheme -X stuff $'\n<C-D>\n'<CR><CR>
 " auto execute commands for prolog
 "au FileType qml map K :w<CR>:!screen -x prolog -X stuff $'\n\ncd %:p:h \n qmlviewer  %:t\n'<CR><CR>
 "au FileType prolog map K :w<CR>:!screen -x prolog -X stuff $'halt.\n\ncd %:p:h \n /usr/local/bin/yap \n [%:t:r].\n'<CR><CR>
 
 endif
-
 
 " select all text in buffer
 map <Leader>a ggVG
@@ -255,14 +255,24 @@ map <Leader>a ggVG
 vnoremap < <gv
 vnoremap > >gv
 
-" clear search hilights
-noremap <silent><Leader>/ :nohls<CR>
+" split commands from http://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
+" window
+nmap <leader>sw<left>  :topleft  vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up>    :topleft  new<CR>
+nmap <leader>sw<down>  :botright new<CR>
+
+" buffer
+nmap <leader>sb<left>   :leftabove  vnew<CR>
+nmap <leader>sb<right>  :rightbelow vnew<CR>
+nmap <leader>sb<up>     :leftabove  new<CR>
+nmap <leader>sb<down>   :rightbelow new<CR>
 
 " split navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+""nnoremap <C-h> <C-w>h
+""nnoremap <C-j> <C-w>j
+""nnoremap <C-k> <C-w>k
+""nnoremap <C-l> <C-w>l
 
 " previous buffer
 noremap <C-e> :e#<CR>
@@ -297,7 +307,6 @@ else
             set t_Co=256 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         endif
 endif
-
 
 
 function! CleanClose(tosave)
