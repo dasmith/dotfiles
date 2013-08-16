@@ -49,9 +49,9 @@ if [ $THISHOST = "UTM" -o $THISHOST = "Turing" ]; then
   export PATH=$PATH:/usr/local/flex_sdk_4.6/bin/
   export PATH=$PATH:/usr/local/Cellar/ruby/1.9.3-p286/bin
   export FLEX_HOME=/usr/local/flex_sdk_4.6/
-  export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
+  export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
 else
-  export PATH=$PATH:/home/dustin/google_appengine/
+  export PATH=$PATH:/home/dustin/google_appengine:/usr/local/sbin
   export PROMPT_COMMAND=$PROMPT_COMMAND"_host"
 fi
 
@@ -82,9 +82,15 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
 
-export PYTHONPATH=$GOOGLE_APP_ENGINE:/Users/dustin/Documents/Projects/beansprock-algorithm/:Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib/:/Users/dustin/Documents/Projects/event-ui/server/:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin/:/Users/dustin/Documents/Projects/goals/:/Users/dustin/.py-dustin/:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:/Users/dustin
-export PYTHONPATH=$PYTHONPATH:/home/dustin/google_appengine/:/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm
+export PYTHONPATH=$GOOGLE_APP_ENGINE:/Users/dustin/Documents/Projects/beansprock-algorithm/:Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib:/Users/dustin/Documents/Projects/event-ui/server:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin:/Users/dustin/Documents/Projects/goals:/Users/dustin/.py-dustin:/Users/dustin/Documents/Projects/py-dustin:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Users/dustin
+export PYTHONPATH=$PYTHONPATH:/home/dustin/google_appengine:/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm
 
 export PATH=/Volumes/Tape/QT5/5.0.0-rc1/clang_64/bin/:/usr/local/bin/:$PATH
 
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# rbenv  (Ruby Env)
+
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+eval "$(rbenv init -)"
+# brew 
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
