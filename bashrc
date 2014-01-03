@@ -62,13 +62,16 @@ fi
 
 
 if [ $THISHOST = "abbith.media.mit.edu" ] ||  [ $THISHOST = "UTM" ]; then
-  # Amazon and Start Cluster stuff
-  export EC2_HOME=~/.ec2
-  #source $EC2_HOME/config
-  #export PATH=$PATH:$EC2_HOME/bin
-  #export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
-  #export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
-  #export PATH=$PATH:$EC2_HOME/bin
+  # Amazon and Star Cluster stuff
+  export AWS_HOME=~/.aws
+  #source $AWS_HOME/config
+  #export PATH=$PATH:$AWS_HOME/bin
+  # elasticbeanstalk.us-east-1.amazonaws.com
+  # add Elastic Beanstalk 
+  export PATH=$PATH:$AWS_HOME/eb/linux/python2.7/
+  #export EC2_PRIVATE_KEY=`ls $AWS_HOME/pk-*.pem`
+  #export EC2_CERT=`ls $AWS_HOME/cert-*.pem`
+  #export PATH=$PATH:$AWS_HOME/bin
 fi
 
 # gem dir
