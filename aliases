@@ -54,11 +54,13 @@ if [[ "$uname" == 'Linux' ]]; then
   eval `dircolors -b`
 elif [[ "$uname" == 'Darwin' ]]; then
   alias py='cd ~/Documents/Projects/py-dustin'
-  alias v='/Applications/MacVim.app/Contents/MacOS/vim -g --remote-silent'
+  alias v='mvim'
+  #alias v='/Applications/MacVim.app/Contents/MacOS/vim -g --remote-silent'
 fi
 
 
 # Shortcuts -------------------------------------------------------
+alias vi='vim'
 alias d='cd ~/Documents'
 alias proj='cd ~/Documents/Projects'
 alias es='cd ~/Documents/Projects/event-ui/server'

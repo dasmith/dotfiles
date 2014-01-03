@@ -29,6 +29,7 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+syntax enable
 " Scheme
 " Font
 set guifont=Meslo\ LG\ L\ DZ:h12
@@ -49,14 +50,21 @@ call vundle#rc()
 " vim-scripts repos
 " let Vundle manage Vundle
 " required! 
+" Bundle 'sontek/rope-vim.git'
 Bundle 'gmarik/vundle'
 Bundle 'spolu/dwm.vim.git'
 
 " LaTeX
 Bundle "jcf/vim-latex"
 
+"Syntax support" 
+Bundle "scrooloose/syntastic.git"
+
 " html  & javascript support
 Bundle "xenoterracide/html.vim"
+
+" CoffeeScript
+Bundle 'kchmck/vim-coffee-script'
 
 " original repos on github
 Bundle "git.zip"
@@ -72,9 +80,7 @@ color codeschool
 " Markdown documents in left pane
 " Bundle "vim-scripts/VOoM.git"
 
-"Bundle 'ervandew/supertab.git'
-"let g:SuperTabDefaultCompletionType = "context"
-"set completeopt=menuone,longest,preview
+Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'scrooloose/nerdtree.git'
 " NERDTree Commands
@@ -126,37 +132,81 @@ Bundle "Soares/rainbow.vim.git"
 Bundle "majutsushi/tagbar.git"
 map <leader>tb :TagbarToggle<cr>
 
-" Python
-" debugging tools
-Bundle "cburroughs/pep8.py"
-Bundle 'kevinw/pyflakes-vim.git'
-" Bundle 'sontek/rope-vim.git'  # slow
-
 " Python-dependent plugins
 if has('python/dyn') || has('python')
 
         filetype plugin on
         Bundle 'ivanov/vim-ipython.git'
-        " Bundle "mjbrownie/pythoncomplete.vim"
-        Bundle 'ervandew/supertab'
-        let g:SuperTabMappingForward = '<tab>'
 
-        Bundle 'msanders/snipmate.vim.git'
+        Bundle "MarcWeber/vim-addon-mw-utils"
+        Bundle "tomtom/tlib_vim"
+        "Bundle "garbas/vim-snipmate"
+
+        Bundle "honza/vim-snippets"
+
         let g:snips_author = 'Dustin A Smith'
         let g:snipMateAllowMatchingDot = 0
 
+        """ python/supertab
+        Bundle 'ervandew/supertab.git'
+        let g:SuperTabDefaultCompletionType = "context"
+        set completeopt=menuone,longest,preview
+
+
         " Python auto complete
-        Bundle 'davidhalter/jedi-vim.git'
+        Bundle "davidhalter/jedi-vim.git"
+      
+        let g:jedi#documentation_command = "?"
         let g:jedi#auto_initialization = 1
-        let g:jedi#pydoc = "U"
-        "let g:jedi#rename_command = "<leader>R"
         let g:jedi#popup_on_dot = 1
-        let g:jedi#show_function_definition = 0
-        " autocmd FileType python let b:did_ftplugin = 1
-        " shift+U shows the pydoc
-        " disabling these two since it crashes on large files (like importing google.appengine.ext)
-        let g:jedi#related_names_command = "<leader>S"
-        let g:jedi#use_tabs_not_buffers = 0
+        let g:jedi#use_splits_not_buffers = "left"
+        let g:jedi#use_tabs_not_buffers = 1
+
+        " More syntax highlighting.
+        "let python_highlight_all = 1
+
+        " Smart indenting
+        set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+        highlight WhitespaceEOL ctermbg=red guibg=red
+        "match WhitespaceEOL /\s\+$/
+
+        "Bundle 'klen/python-mode'
+        " Documentation
+        "let g:pymode_doc = 1
+        "let g:pymode_doc_key = 'W'
+
+        " let g:pymode_rope = 0
+
+        "Linting
+        "let g:pymode_lint = 1
+        "let g:pymode_lint_checker = "pyflakes,pep8"
+        " Auto check on save
+        "let g:pymode_lint_write = 1
+
+        " Support virtualenv
+        "let g:pymode_virtualenv = 0
+
+        " Enable breakpoints plugin
+        "let g:pymode_breakpoint = 1
+        "let g:pymode_breakpoint_key = '<leader>b'
+
+        " Disable autofolding
+        let g:pymode_folding = 0
+
+        " syntax highlighting
+        let g:pymode_syntax = 1
+        let g:pymode_syntax_all = 1
+        let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+        let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+        "Bundle 'nvie/vim-flake8'
+        " Run <F7> 
+
+
+        """ python/rope
+        "map <leader>j :RopeGotoDefinition<CR>
+        "map <leader>r :RopeRename<CR>
 
         au FileType python map K :python run_this_file()<CR>
         au FileType python map <silent> <S-F5> :python run_this_line()<CR>
@@ -169,7 +219,6 @@ endif
 
 " Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
 
 " Pandoc -- too slow to be usable
 " Bundle 'vim-pandoc/vim-pandoc.git'
@@ -191,15 +240,16 @@ let g:Powerline_symbols = 'fancy'
 " Color editor for vim
 Bundle "Rykka/colorv.vim"
 
-
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
-highlight clear SpellRars
-highlight SpellRare term=underline cterm=underline
-highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
+if has('gui_running')
+        highlight clear SpellBad
+        highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+        highlight clear SpellCap
+        highlight SpellCap term=underline cterm=underline
+        highlight clear SpellRars
+        highlight SpellRare term=underline cterm=underline
+        highlight clear SpellLocal
+        highlight SpellLocal term=underline cterm=underline
+endif
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 set spell spelllang=en_us
