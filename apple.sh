@@ -82,8 +82,11 @@ echo "Display ASCII control characters using caret notation in standard text vie
 # Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
+
 echo "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
+
 
 echo "Set a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 0.02

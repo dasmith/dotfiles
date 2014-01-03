@@ -6,6 +6,9 @@ export CLICOLOR=1;
 export IKARUS_LIBRARY_PATH=.:/Users/dustin/Documents/Projects/Others/mit-church:IKARUS_LIBRARY_PATH
 export JAVA_OPTS="$JAVA_OPTS -Dsolr.solr.home=/usr/local/tomcat6/solr"
 
+function _update_ps1() {
+   export PS1="$(~/powerline-shell.py $?)"
+}
 # Identify OS and Machine -----------------------------------------
 export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
 export OSVERSION=`uname -r`; OSVERSION=`expr "$OSVERSION" : '[^0-9]*\([0-9]*\.[0-9]*\)'`
@@ -22,20 +25,8 @@ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse
 
 export TEXTMF=/usr/local/texlive/2011/texmf/
 
-# path using powerline-bash
-function _update_ps1() { 
-  export PS1="$(~/dotfiles/powerline-bash.py $?)" 
-}
-function _update_ps1_host() { 
-  export PS1="$THISHOST:$(~/dotfiles/powerline-bash.py $?)" 
-}
-function _update_ps1_user() { 
- export PS1="$(whoami):$(~/dotfiles/powerline-bash.py $?)"
-}
-function _update_ps1_host_user() {
-  export PS1="$(whoami)@$THISHOST:$(~/dotfiles/powerline-bash.py $?)"
-}
 export PROMPT_COMMAND="_update_ps1"
+
 
 if [ $THISHOST = "UTM" -o $THISHOST = "Turing" ]; then 
   #alias eclim='/Applications/eclipse/eclimd'
@@ -52,7 +43,6 @@ if [ $THISHOST = "UTM" -o $THISHOST = "Turing" ]; then
   export PATH=/Applications/MATLAB_R2008a/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/:/opt/local/lib/mysql5/bin:/opt/local/bin:~/MonetDb/etc:~/MonetDb/include:~/MonetDb/share:~/Monetdb/var:~/MonetDb/lib:/Users/dustin/MonetDb/bin:/opt/local/sbin:/usr/local/sbin:/usr/local/android-sdk-mac_x86-1.5_r1:/opt/local/bin:/Users/dustin/.cabal/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
 else
   export PATH=$PATH:/home/dustin/google_appengine:/usr/local/sbin
-  export PROMPT_COMMAND=$PROMPT_COMMAND"_host"
 fi
 
 # add username to the prompt if not dustin

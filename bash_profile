@@ -120,6 +120,11 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 # pip bash completion end
 
+if [ -f /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+fi
+
+
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 # Added by Canopy installer on 2013-05-28
