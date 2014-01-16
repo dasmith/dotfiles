@@ -29,6 +29,7 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+syntax on
 syntax enable
 " Scheme
 " Font
@@ -37,8 +38,8 @@ set guifont=Meslo\ LG\ L\ DZ:h12
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,.pyc
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-
 filetype off                  " required!
+filetype on
 filetype plugin indent on     " required!
 
 let mapleader = ","
@@ -60,11 +61,14 @@ Bundle "jcf/vim-latex"
 "Syntax support" 
 Bundle "scrooloose/syntastic.git"
 
-" html  & javascript support
-Bundle "xenoterracide/html.vim"
+" html  & jinja2
+Bundle "lepture/vim-jinja" 
 
 " CoffeeScript
 Bundle 'kchmck/vim-coffee-script'
+
+" Robot Framework
+Bundle "mfukar/robotframework-vim"
 
 " original repos on github
 Bundle "git.zip"
@@ -76,6 +80,7 @@ color codeschool
 "colorscheme railscasts2
 
 
+
 " Show table of contents for 
 " Markdown documents in left pane
 " Bundle "vim-scripts/VOoM.git"
@@ -83,6 +88,9 @@ color codeschool
 Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'scrooloose/nerdtree.git'
+
+Bundle 'scrooloose/syntastic'
+
 " NERDTree Commands
 let NERDTreeWinSize=25
 let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
@@ -156,49 +164,20 @@ if has('python/dyn') || has('python')
         " Python auto complete
         Bundle "davidhalter/jedi-vim.git"
       
+        #let g:jedi#auto_vim_configuration = 1
         let g:jedi#documentation_command = "?"
         let g:jedi#auto_initialization = 1
         let g:jedi#popup_on_dot = 1
-        let g:jedi#use_splits_not_buffers = "left"
+        #let g:jedi#use_splits_not_buffers = "left"
         let g:jedi#use_tabs_not_buffers = 1
+        #let g:jedi#popup_select_first = 1
 
-        " More syntax highlighting.
-        "let python_highlight_all = 1
 
         " Smart indenting
         set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
         highlight WhitespaceEOL ctermbg=red guibg=red
         "match WhitespaceEOL /\s\+$/
-
-        "Bundle 'klen/python-mode'
-        " Documentation
-        "let g:pymode_doc = 1
-        "let g:pymode_doc_key = 'W'
-
-        " let g:pymode_rope = 0
-
-        "Linting
-        "let g:pymode_lint = 1
-        "let g:pymode_lint_checker = "pyflakes,pep8"
-        " Auto check on save
-        "let g:pymode_lint_write = 1
-
-        " Support virtualenv
-        "let g:pymode_virtualenv = 0
-
-        " Enable breakpoints plugin
-        "let g:pymode_breakpoint = 1
-        "let g:pymode_breakpoint_key = '<leader>b'
-
-        " Disable autofolding
-        let g:pymode_folding = 0
-
-        " syntax highlighting
-        let g:pymode_syntax = 1
-        let g:pymode_syntax_all = 1
-        let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-        let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
         "Bundle 'nvie/vim-flake8'
         " Run <F7> 
@@ -281,10 +260,14 @@ if has('autocmd')
   autocmd FileType make setlocal noexpandtab
   au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 colorcolumn=80 
 
+  au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja 
+
   " show git diff in window split when committing
   autocmd FileType gitcommit DiffGitCached | wincmd p
   au BufRead,BufNewFile {COMMIT_EDITMSG}        set ft=gitcommit
 
+  " coffeescript
+  autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 " auto executable commands for python
 " au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\nquit()\n'<CR><CR>:!screen -AmdS ipython ipython:!screen -R ipython
 au FileType python map Q :w<CR>:!screen -x ipython -X stuff $'\%load_ext autoreload\n\%autoreload 2\n\%reset\ny\n\%cd %:p:h\n\%run %:t\n'<CR><CR>
