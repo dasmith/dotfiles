@@ -95,21 +95,58 @@ Bundle 'scrooloose/syntastic'
 let g:NERDTreeWinSize=25
 let NERDTreeWinSize=26
 let g:NERDTreeWinPos = "left"
+
+let NERDTreeDirArrows=1
+let NERDTreeMinimalUI=1
+let NERDTreeMouseMode=2
+" let NERDTree change my working directory if its root changes.
+let NERDTreeChDirMode=2
+" show hidden files
+let NERDTreeShowHidden=1
+
 let g:NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
 let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>n :NERDTree<CR>
 map <leader>e :NERDTreeFind<CR>
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
-function! s:CloseIfOnlyNerdTreeLeft()
+function s:CloseIfOnlyNerdTreeLeft()
   if exists("t:NERDTreeBufName")
-   if bufwinnr(t:NERDTreeBufName) != -1
-     if winnr("$") == 1
-       q
-     endif
-   endif
-endif
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
+
+autocmd FocusGained * call s:UpdateNERDTree()
+" NERDTree utility function
+function s:UpdateNERDTree(...)
+  let stay = 0
+
+  if(exists("a:1"))
+    let stay = a:1
+  end
+
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+
+  if exists(":CommandTFlush") == 2
+    CommandTFlush
+  endif
+endfunction
+
 
 set splitright
 autocmd VimEnter * NERDTree     "run nerdtree
