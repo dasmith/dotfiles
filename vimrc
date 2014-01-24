@@ -92,8 +92,10 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'scrooloose/syntastic'
 
 " NERDTree Commands
-let NERDTreeWinSize=25
-let NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
+let g:NERDTreeWinSize=25
+let NERDTreeWinSize=26
+let g:NERDTreeWinPos = "left"
+let g:NERDTreeIgnore = ['\.pyc$', '\.(bbl|brf|blg)$', '^.__', '\.aux$', '\.log$', '\.out$', '\.doc(x|)$', '\.toc$', '\.jpg$', '\.jpeg$', '\.swp$', '\.gif$', '\.rtf$', '\.pdf$', '\.png$', '\.bak$', '\.pyo$'] 
 let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>n :NERDTree<CR>
 map <leader>e :NERDTreeFind<CR>
@@ -102,16 +104,16 @@ autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 " buffer that's left is the NERDTree buffer
 function! s:CloseIfOnlyNerdTreeLeft()
   if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
-    endif
-  endif
-endfunction
+   if bufwinnr(t:NERDTreeBufName) != -1
+     if winnr("$") == 1
+       q
+     endif
+   endif
+endif
+
+set splitright
 autocmd VimEnter * NERDTree     "run nerdtree
 autocmd VimEnter * wincmd p     "cursor to right
-
 
 " ctrlp
 Bundle "kien/ctrlp.vim.git"
@@ -146,8 +148,8 @@ if has('python/dyn') || has('python')
         filetype plugin on
         Bundle 'ivanov/vim-ipython.git'
 
-        Bundle "MarcWeber/vim-addon-mw-utils"
-        Bundle "tomtom/tlib_vim"
+        "Bundle "MarcWeber/vim-addon-mw-utils"
+        "Bundle "tomtom/tlib_vim"
         "Bundle "garbas/vim-snipmate"
 
         Bundle "honza/vim-snippets"
@@ -164,10 +166,11 @@ if has('python/dyn') || has('python')
         " Python auto complete
         Bundle "davidhalter/jedi-vim.git"
       
+        let g:jedi#auto_initialization = 0
+        let g:jedi#auto_vim_configuration = 0
         let g:jedi#documentation_command = "?"
-        "let g:jedi#auto_initialization = 1
         let g:jedi#popup_on_dot = 1
-        "let g:jedi#use_splits_not_buffers = "left"
+        let g:jedi#use_splits_not_buffers = "bottom"
         let g:jedi#use_tabs_not_buffers = 1
         "let g:jedi#popup_select_first = 1
 

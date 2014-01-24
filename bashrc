@@ -24,16 +24,16 @@ export TEXTMF=/usr/local/texlive/2011/texmf/
 
 # path using powerline-bash
 function _update_ps1() { 
-  export PS1="$(~/dotfiles/powerline-bash.py $?)" 
+  export PS1="$(~/dotfiles/powerline-shell.py $?)" 
 }
 function _update_ps1_host() { 
-  export PS1="$THISHOST:$(~/dotfiles/powerline-bash.py $?)" 
+  export PS1="$THISHOST:$(~/dotfiles/powerline-shell.py $?)" 
 }
 function _update_ps1_user() { 
- export PS1="$(whoami):$(~/dotfiles/powerline-bash.py $?)"
+ export PS1="$(whoami):$(~/dotfiles/powerline-shell.py $?)"
 }
 function _update_ps1_host_user() {
-  export PS1="$(whoami)@$THISHOST:$(~/dotfiles/powerline-bash.py $?)"
+  export PS1="$(whoami)@$THISHOST:$(~/dotfiles/powerline-shell.py $?)"
 }
 export PROMPT_COMMAND="_update_ps1"
 
@@ -80,10 +80,6 @@ export PATH=/usr/local/texlive/2011/bin/x86_64-darwin:$PATH:/usr/local/Cellar/ru
 # Load in .bashrc -------------------------------------------------
 source ~/.aliases   
 # virtualenvwrapper
-export PIP_RESPECT_VIRTUALENV=true
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_SCRIPT=/Users/dustin/Library/Enthought/Canopy_64bit/User/bin/virtualenvwrapper.sh
-source /Users/dustin/Library/Enthought/Canopy_64bit/User/bin/virtualenvwrapper.sh
 
 export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
 
@@ -91,5 +87,10 @@ export PYTHONPATH=$GOOGLE_APP_ENGINE:/Developer/Panda3d/lib:/Developer/Panda3d/l
 export PYTHONPATH=$PYTHONPATH:/home/dustin/google_appengine/:/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm
 
 export PATH=/Volumes/Tape/QT5/5.0.0-rc1/clang_64/bin/:/usr/local/bin/:$PATH
+export PIP_RESPECT_VIRTUALENV=true
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_SCRIPT=/Users/dustin/Library/Enthought/Canopy_64bit/User/bin/virtualenvwrapper.sh
+source /Users/dustin/Library/Enthought/Canopy_64bit/User/bin/virtualenvwrapper.sh
+
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
