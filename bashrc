@@ -71,14 +71,16 @@ export PATH=/usr/local/texlive/2011/bin/x86_64-darwin:$PATH:/usr/local/Cellar/ru
 source ~/.aliases   
 # virtualenvwrapper
 export PIP_RESPECT_VIRTUALENV=true
+
 export WORKON_HOME=$HOME/.virtualenvs
 
 export GOOGLE_APP_ENGINE=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
 
-export PYTHONPATH=$GOOGLE_APP_ENGINE:/Users/dustin/Documents/Projects/beansprock-algorithm/:Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib:/Users/dustin/Documents/Projects/event-ui/server:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin:/Users/dustin/Documents/Projects/goals:/Users/dustin/.py-dustin:/Users/dustin/Documents/Projects/py-dustin:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Users/dustin
-export PYTHONPATH=$PYTHONPATH:/home/dustin/google_appengine:/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm
-
-export PATH=/Volumes/Tape/QT5/5.0.0-rc1/clang_64/bin/:/usr/local/bin/:$PATH
+export PYTHONPATH=$PYTHONPATH:/Users/dustin/Library/Enthought/Canopy_64bit/User/lib/python2.7/site-packages:/Users/dustin/Documents/Projects/beansprock/beansprock-algorithm
+export PYTHONPATH=$PYTHONPATH:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:$GOOGLE_APP_ENGINE
+export PYTHONPATH=$PYTHONPATH:/Developer/Panda3d/lib:/Developer/Panda3d/lib:/Users/dustin/Documents/Projects/event-ui/server/lib:/Users/dustin/Documents/Projects/event-ui/server:/Users/dustin/Documents/Projects/event-ui/server/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin:/Users/dustin/Documents/Projects/goals:/Users/dustin/.py-dustin:/Users/dustin/Documents/Projects/py-dustin:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Users/dustin/Documents/Projects/nlplanners:/Users/dustin/Documents/Projects/Others/scin/scin:/Users/dustin/Documents/Projects/py-dustin/:/Users/dustin/Documents/Projects/divisi2:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Users/dustin
+export PYTHONPATH=$GOOGLE_APP_ENGINE:/Users/dustin/Library/Enthought/Canopy_64bit/User/lib/python2.7/site-packages:$PYTHONPATH
+export PATH=/Users/dustin/Library/Enthought/Canopy_64bit/User/bin:/Volumes/Tape/QT5/5.0.0-rc1/clang_64/bin/:/usr/local/bin/:$PATH
 
 # rbenv  (Ruby Env)
 
