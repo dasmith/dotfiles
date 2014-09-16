@@ -137,3 +137,7 @@ source /Users/dustin/Library/Enthought/Canopy_64bit/User/bin/activate
 VIRTUAL_ENV_DISABLE_PROMPT=1 source /usr/local/Canopy_64bit/User/bin/activate
 
 
+
+# Added by Canopy installer on 2014-06-18
+# VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
+# VIRTUAL_ENV_DISABLE_PROMPT=1 source /Users/dustin/Library/Enthought/Canopy_64bit/User/bin/activate
